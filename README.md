@@ -26,7 +26,7 @@ Para poder generar enemigos en el mapa podemos usar un generador de números ran
 
 Y luego hacemos que se ponga un texto que le diga al jugador cuanto ha avanzado, esto tomando en cuenta sus estadísticas de velocidad, y luego al avanzar ahí tambien corremos la función de generar un enemigo random para que el jugador lo derrote.
 
-##Resumen
+## Resumen
 
 En general es un proyecto largo y que necesitará muchas funciones, matemáticas y texto, pero es algo posile, es algo que se puede medir y que se puede crear algoritmos para cada parte, se puede desglozar y tomar parte por parte, e incluso podría servir como codigo base para en un futuro agregarle gráficos.
 
