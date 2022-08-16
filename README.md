@@ -11,10 +11,10 @@ Un RPG son las siglas para Role Playing Game, es un genero de los videojuegos qu
 ### Explicación código
 
 En el programa se usan varias matemáticas para poder determinar:
-ºVida
-ºNivel
-ºDaño
-ºEstadisticas
+/n ºVida
+/n ºNivel
+/n ºDaño
+/n ºEstadisticas
 
 Para poder determinar estas variables se pueden usar sumas y restas simples, junto con multiplicaciones, es cuestión de guardarlos en variables con nombre y luego crear funciones, las cuales dependiendo de lo que sucedad aumentaran o bajaran estas variables, por ejemplo si un enemigo te ataca, creamos una función para ataque que baje la vida del jugador dependiendo de cuanto daño puede hacer el enemigo.
 
