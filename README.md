@@ -4,11 +4,11 @@ Proyecto TC1028 de Pensamiento Computacional de Samir Baidon Pardo A01705403
 
 # RPG
 
-### Contexto
+## Contexto
 
 Un RPG son las siglas para Role Playing Game, es un genero de los videojuegos que te permite personalizar a tu personaje, ir en aventuras y suir de nivel para poder derrotar enemigos más poderosos, todo con el fin de explorar un gran mundo repleto de personajes, objetos y enemigos por doquier y tu como el jugador es tu misión sobrevivir
 
-### Explicación código
+## Explicación código
 
 En el programa se usan varias matemáticas para poder determinar:
 - Vida
@@ -25,4 +25,9 @@ Para poder generar enemigos en el mapa podemos usar un generador de números ran
 - D - Derecha
 
 Y luego hacemos que se ponga un texto que le diga al jugador cuanto ha avanzado, esto tomando en cuenta sus estadísticas de velocidad, y luego al avanzar ahí tambien corremos la función de generar un enemigo random para que el jugador lo derrote.
+
+##Resumen
+
+En general es un proyecto largo y que necesitará muchas funciones, matemáticas y texto, pero es algo posile, es algo que se puede medir y que se puede crear algoritmos para cada parte, se puede desglozar y tomar parte por parte, e incluso podría servir como codigo base para en un futuro agregarle gráficos.
+
 
