@@ -6,7 +6,13 @@ Proyecto TC1028 de Pensamiento Computacional de Samir Baidon Pardo A01705403
 
 ## Contexto
 
-Un RPG son las siglas para Role Playing Game, es un genero de los videojuegos que te permite personalizar a tu personaje, ir en aventuras y suir de nivel para poder derrotar enemigos más poderosos, todo con el fin de explorar un gran mundo repleto de personajes, objetos y enemigos por doquier y tu como el jugador es tu misión sobrevivir
+Un RPG son las siglas para Role Playing Game, es un genero de los videojuegos que te permite personalizar a tu personaje, ir en aventuras y suir de nivel para poder derrotar enemigos más poderosos, todo con el fin de explorar un gran mundo repleto de personajes, objetos y enemigos por doquier y tu como el jugador es tu misión sobrevivir, algunos ejemplos son: ºThe Legend of Zelda
+ºFire Emblem
+ºFinal Fantasy
+ºDragon Quest
+ºOmori
+ºPokémon
+ºUndertale
 
 ## Explicación código
 
