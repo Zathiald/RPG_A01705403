@@ -38,14 +38,14 @@ Y luego hacemos que se ponga un texto que le diga al jugador cuanto ha avanzado,
 El algoritmo sería primero preguntarle al usuario que quiere hacer ,y luego en base a lo que haya hecho, y luego si se mueve y hay algo se le dira al usuario que puede o debe interactuar con dicho elemento, por ejemplo si hay un enemigo se inicia una fase de combate, si hay una tienda se le dice al usuario que puede comprar en la tienda, sería algo así:
 
   - 1ºEl usuario escoge entre opciones del menu
-      *Si el usuario usa un objeto: Se le aumentan las estadisticas según el objeto
-      *Si el usuario se mueve:
-        *Se le dice al usuario que hay alrededor
-          *Si hay un enemigo: Inicia fase de combate
-          *Si hay un objeto: Se le dice al usuario obtuvo un objeto
-          *Si hay una tienda: Se le dice al usuario que puede comprar
-     *Si el usuario cambia vestimenta: Se le aumentan las estadisticas según su vestuario
-     *Si el usuario quiere guardar: Se guardan sus variables y se termina el juego hasta que lo vuelva a usar
+      /*Si el usuario usa un objeto: Se le aumentan las estadisticas según el objeto
+      /*Si el usuario se mueve:
+        /*Se le dice al usuario que hay alrededor
+          /*Si hay un enemigo: Inicia fase de combate
+          /*Si hay un objeto: Se le dice al usuario obtuvo un objeto
+          /*Si hay una tienda: Se le dice al usuario que puede comprar
+     /*Si el usuario cambia vestimenta: Se le aumentan las estadisticas según su vestuario
+     /*Si el usuario quiere guardar: Se guardan sus variables y se termina el juego hasta que lo vuelva a usar
   
   - 2ºEl usuario muere: Se le regresa a la vida desde el último punto guardado
 
