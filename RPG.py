@@ -14,7 +14,7 @@ def text(texto,speed):#Hacemos una función para hacer que el texto aparezca flu
 
 #Metodo para hacer aparecer el texto lentamente obtenido de https://es.stackoverflow.com/questions/25901/como-imprimir-una-cadena-de-texto-con-pausas-entre-cada-letra-impresa-en-python
 text1 = ("Como te llamas héroe o heroína: ") #Se le pide al usuario su nombre
-text(text1,0.05)
+text(text1,0.03)
 
 name=str(input())
 
@@ -22,10 +22,10 @@ text2=("Bienvenid@ ",str(name),'\n') #Se le saluda al usuario
 text(text2,0.5)
 
 text3=("Estas a punto de embarcarte en una aventura\n") #Se le da al usuario una bienvenida a la aventura
-text(text3,0.05)
+text(text3,0.03)
 
 text4=("¿Estás listo?\n") #Se le pregunta si esta listo para el viaje
-text(text4,0.05)
+text(text4,0.03)
 
 #Metodo obtenido en https://stackoverflow.com/questions/5424716/how-to-check-if-string-input-is-a-number, donde explica como hacer un loop infinito con comparadores
 while True: #Especificamos que mientras sea verdadero
@@ -46,74 +46,109 @@ while True: #Especificamos que mientras sea verdadero
         continue #Reiniciamos el loop
 #------------------------------------------BIENVENIDA-----------------------------------------------------------------------------------------------------------------------------------   
 text8=("Bienvenido al mundo de Palgia, un extenso lugar lleno de enemigos y aliados, amenazas y experiencias\n") #Se le introudce al heroé al mundo del juego
-text(text8,0.05)
+text(text8,0.03)
 
-vida= 10 #Se guarda la variable de vida
-velocidad = 5 #Se guarda la variable de velocidad
-fuerza = 5 #Se guarda la variable de fuerza
-nivel = 1 #Se guarda el nivel
-exp = 0 #Se guarda la experiencia
+anillos=[] #Creamos una variable externa para poder guardar anillo
+medallons=[] #Creamos una variable externa para poder guardar medallon
+cascos=[] #Creamos una variable externa para poder guardar cascos
+pocions=[] #Creamos una variable externa para poder guardar pociones
+vida= 7.0 #Se guarda la variable de vida
+velocidad = 4.0 #Se guarda la variable de velocidad
+fuerza = 3.5 #Se guarda la variable de fuerza
+nivel = 1.0 #Se guarda el nivel
+exp = 0.0 #Se guarda la experiencia
 
 def stats(): #Creamos una función que presentara las stats cada vez que la llamamos
 
     name_text=("Nombre: ",name,'\n')
-    text(name_text,0.05)
+    text(name_text,0.5)
 
     vida_text=("Vida: ",vida,'\n') #Se presenta la vida
-    text(vida_text,0.05)
+    text(vida_text,0.5)
 
     velocidad_text=("Velocidad: ",velocidad,'\n') #Se presenta la velocidad
-    text(velocidad_text,0.05)
+    text(velocidad_text,0.5)
 
     fuerza_text=("Fuerza: ",fuerza,'\n') #Se presenta la fuerza
-    text(fuerza_text,0.05)
+    text(fuerza_text,0.5)
     
     nivel_text=("Nivel: ",nivel,'\n') #Se presenta su nivel
-    text(nivel_text,0.05)
+    text(nivel_text,0.5)
 
     exp_text=("Exp: ",exp,'\n') #Se presenta su exp
-    text(exp_text,0.05)
+    text(exp_text,0.5)
     
 text9=("Estos son tus stats iniciales\n") #Se le presenta al jugador sus stats iniciales
-text(text9,0.05)
+text(text9,0.03)
     
 stats() #Llamamos a la función de stats para mostrarselas al jugador
 
 text10=("Si en algún momento quieres ver tus stats presiona S al inicio de cada turno\n") #Se le dice al usuario que al presionar S puede ver sus stats
-text(text10,0.05)
+text(text10,0.03)
 
 text11=("Para moverte presiona las teclas W,A,S,D y te moveras en esa dirección\n") #Se le dice al usuario como hacer para seleccionar dirección de movimiento
-text(text11,0.05)
+text(text11,0.03)
 
-text12=("Según tu velocidad es cuantos cuadros podras moverte por turno\n") #Se le dice al usuario cuanto se movera según su velocidad
-text(text12,0.05)
+text12=("Según tu velocidad es cuantos cuadros podras moverte por turno y también cuanta chance tienes para atacar a tu enemigo\n") #Se le dice al usuario cuanto se movera según su velocidad
+text(text12,0.03)
 
-text13=("Por ejemplo ahora tienes 5 de velocidad, así que te mueves 5 cuadros por turno\n") #Se le da un ejemplo de la velocidad
-text(text13,0.05)
+text13=("Mientras más velocidad más chance de atacar\n") #Se le da un ejemplo de la velocidad
+text(text13,0.03)
 
 text14=("Para escoger moverte al inicio de cada turno presiona M\n") #Se le dice al usuario como hacer para moverse
-text(text14,0.05)
+text(text14,0.03)
 
 text15=("Al escoger la opción de moverte, hay una posibilidad de que aparezca un enemigo, pueblo u objeto en tu camino\n") #Se le dice al usuario como hacer para moverse
-text(text15,0.05)
+text(text15,0.03)
 
 text16=("Por toda Palgia hay varios objetos místicos, usalos con sabiduría para obtener ventaja en combate\n") #Se le dice al usuario como hacer para moverse
-text(text16,0.05)
+text(text16,0.03)
 
 text17=("Pero cuidado, que algunos objetos estan embrujados y te podrían bajar los stats\n") #Se le dice al usuario como hacer para moverse
-text(text17,0.05)
+text(text17,0.03)
 
 text18=("Para ver y escoger un objeto al inicio de cada turno presiona I\n") #Se le dice al usuario como hacer para moverse
-text(text18,0.05)
+text(text18,0.03)
 
 text19=("Ahora que estas familiarizado con las acciones básicas\n") #Se le dice al usuario como hacer para moverse
-text(text19,0.05)
+text(text19,0.03)
 #---------------------------------------FUNCIONES PRINCIPALES-----------------------------------------------------------------------------------------------------
-def diriol(): #Hacemos una función por enemigo para alterar simplementa las fuerzas,velocidad y vida
 
-    fuerza_diriol = 1 #Declaramos la fuerza de este enemigo
-    velocidad_diriol = 6 #Declaramos la velocidad de este enemigo
-    vida_diriol = 7 #Declaramos la vida de este enemigo
+def Nightmask(): #Hacemos una función para el segundo boss
+    text_nightmask=("Un caballero...pero algo no esta bien con el,creo creo que esta poseído\n")
+    text(text_nightmask,0.03)
+    enem("Nightmask",10,10,15,5)
+
+def Dreadbug(): #Hacemos una función para los Dreadbug
+    enem("Dreadbug",4.5,5,7.5,4)
+
+def Warpfiend():#Hacemos una función para los Warpfiend
+    enem("Warpfiend",4,4,7,3.5)
+
+def Sorrowvine(): #Hacemos una función para los Sorrowvine
+    enem("Sorrowvine",3.5,3.5,6.5,3)
+
+def Uraelth(): #Hacemos una función para el primer boss
+    text_uraelth=("Parece ser que te has topado con un dragón, y este tiene hambre de aventurer@\n")
+    text(text_uraelth,0.03)
+    enem("Uraelth",8,7,10,4)
+
+def baqus(): #Hacemos una función para los baqus
+    enem("Baqus",3,3,6,2.5)
+
+def bokoblin():#Hacemos una función para los bokoblins
+    enem("Bokoblin",2,2.5,5.5,2)
+
+def diriol(): #Hacemos una función para los diriol
+    enem("Diriol",1,2,5,1)
+
+def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem): #Hacemos una función por enemigo para alterar simplementa el nombre,fuerzas,velocidad y vida
+
+    name_enem= str(name_enem)
+    fuerza_enem = float(fuerza_enem) #Declaramos la fuerza de este enemigo
+    velocidad_enem = float(velocidad_enem) #Declaramos la velocidad de este enemigo
+    vida_enem = float(vida_enem) #Declaramos la vida de este enemigo
+    exp_enem = float(exp_enem)
 
     #Metodo para declarar global variable obtenido de https://bobbyhadz.com/blog/python-unboundlocalerror-local-variable-name-referenced-before-assignment#:~:text=The%20Python%20"UnboundLocalError%3A%20Local%20variable,function%20definition%2C%20e.g.%20global%20my_var%20.
     global vida 
@@ -122,30 +157,156 @@ def diriol(): #Hacemos una función por enemigo para alterar simplementa las fue
     global nivel
     global exp
 
+    vida_=vida
+
     text_enem=("Los stats de este enemigo son: \n") #Mostramos los stats de el enemigo
     text(text_enem,0.05)
 
-    nom_diriol_t=("Nombre: Diriol \n") #Se presenta su vida
-    text(nom_diriol_t,0.05)
+    nom_enem_t=("Nombre: ",name_enem,'\n') #Se presenta su vida
+    text(nom_enem_t,0.5)
 
-    velocidad_diriol_t=("Velocidad: ",velocidad_diriol,'\n') #Se presenta su velocidad
-    text(velocidad_diriol_t,0.05)
+    velocidad_enem_t=("Velocidad: ",velocidad_enem,'\n') #Se presenta su velocidad
+    text(velocidad_enem_t,0.5)
 
-    fuerza_diriol_t=("Fuerza: ",fuerza_diriol,'\n') #Se presenta su fuerza
-    text(fuerza_diriol_t,0.05)
+    fuerza_enem_t=("Fuerza: ",fuerza_enem,'\n') #Se presenta su fuerza
+    text(fuerza_enem_t,0.5)
     
-    vida_diriol_t=("Nivel: ",vida_diriol,'\n') #Se presenta la fuerza
-    text(vida_diriol_t,0.05)
+    vida_enem_t=("Vida: ",vida_enem,'\n') #Se presenta la fuerza
+    text(vida_enem_t,0.5)
 
     while True: #Creamos un loop para la secuencia de ataque
         text_atac=("Presiona X para atacar \n") #Le decimos al usuario que presione X para atacar
         text(text_atac,0.05)
-
+        text_atac=("Presiona I para abrir inventario \n") #Le decimos al usuario que presione X para atacar
+        text(text_atac,0.05)
+        text_esc=("Presiona E para escapar \n") #Le decimos al usuario que presione X para atacar
+        text(text_esc,0.05)
+        
         atac=str(input()) #Registramos el ataque
 
-        if atac!="X" and atac!="x": #Declaramos que pasa si el usuario no presiona X
+        if atac=="I" or atac=="i":
+            inv()
+            continue
 
-            vida=vida-fuerza_diriol #Si el usuario no presiona X, entonces se le quita vida
+        elif atac=="X" or atac=="x": #Declaramos que pasa si el usuario presiona X
+
+            if velocidad<velocidad_enem: #Declaramos que pasa si la velocidad de el enemigo es mayor a la nuestra
+                atak=random.randint(0,1) #Generamos un número random, para que sucedad la posibilidad de que falle el ataque
+                #Declaramos que la variable sera un número integer random, de entre 0 a 1, es decir 50% probabilidad de que falle
+
+                if atak==0: #Declaramos que pasa si el número random es 0
+                    vida=vida-fuerza_enem #Si el número random es 0, le quitamos vida al enemigo
+                    text_atacado=("¡FALLASTE!. Ahora el enemigo te ha atacado\n") #Le decimos al usuario que su vida fallo
+                    text(text_atacado,0.05)
+
+                    text_vida_u=("Tu vida ahora es ",vida,'\n') #Le mostramos su nueva vida
+                    text(text_vida_u,0.05)
+            
+                    if vida>0: #Si la vida del usuario es mayor a 0, puede atacar de nuevo
+                        continue
+
+                    if vida==0 or vida<0: #Si la vida del usuario es menor o igual a 0, le mostramos un mensaje de Game Over
+                        text_lose=("¡GAME OVER!\n") #Le mostramos al usuario un mensaje de game over
+                        text(text_lose,1.0)
+                        exit() #Terminamos el código si se nos acaba la vida
+   
+                if atak==1: #Declaramos que pasa si el número random es 1
+                    vida_enem=vida_enem-fuerza #Si el número random es 1, le quitamos vida al enemigo
+
+                    text_atacar=("¡Has atacado al enemigo!\n") #Le decimos al usuario que ha logrado atacar al enemigo
+                    text(text_atacar,0.05)
+
+                    text_vida_e=("Su vida ahora es ",vida_enem,'\n') #Mostramos la nueva vida del enemigo
+                    text(text_vida_e,0.05)
+
+                    if vida_enem==0 or vida_enem<0: #Si la vida del enemigo es igual o menor a 0, le decimos al usuario que gano
+                        text_lose=("¡LO LOGRASTE!\n") #Le mostramos el mensaje de victoria al usuario
+                        text(text_lose,0.05)
+                        exp=exp+exp_enem #Le sumamos experiencia al usuario
+                        stats() #Le mostramos sus stats de nuevo
+                        if exp>=7: #Establecemos que pasa si el usuario consigue 10 de experiencia
+                            nivel =nivel+1 #Le sumamos 1 a su nivel
+                            vida = vida+2 #Le agregamos 2 a la vida 
+                            velocidad = velocidad+2 #Le agregamos 2 a la velocidad
+                            fuerza = fuerza+2 #Le agregamos 2 a la fuerza
+                            text_subir=("¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos \n") #Le mostramos un mensaje de felicitación
+                            text(text_subir,0.05)
+                            stats()
+                        if nivel==1 and exp>=15:
+                            nivel = nivel+1
+                            vida = vida+3
+                            velocidad = velocidad + 3
+                            fuerza = fuerza + 3
+                            text_subir=("¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos \n") #Le mostramos un mensaje de felicitación
+                            text(text_subir,0.05)
+                            stats()
+                        break #Seguimos el código y mostramos de nuevo el menú
+
+                    if vida_enem>0: #Declaramos que pasa si la vida del enemigo es mayor a 0
+                        continue #Reiniciamos el loop
+
+            elif velocidad>velocidad_enem or velocidad==velocidad_enem: #Declaramos que pasa si nuestra velocidad mayor a la del enemigo
+                atak=random.randint(0,3) #Generamos un número random, para que sucedad la posibilidad de que falle el ataque
+                #Declaramos que la variable sera un número integer random, de entre 0 a 3, es decir 25% probabilidad de que falle
+
+                if atak==0: #Declaramos que pasa si el número random es 0
+                    vida=vida-fuerza_enem #Si el número random es 0, el enemigo nos quita vida
+                    text_atacado=("¡FALLASTE!. Ahora el enemigo te ha atacado\n") #Le decimos al usuario que su vida fallo
+                    text(text_atacado,0.05)
+
+                    text_vida_u=("Tu vida ahora es ",vida,'\n') #Le mostramos su nueva vida
+                    text(text_vida_u,0.05)
+            
+                    if vida>0: #Si la vida del usuario es mayor a 0, puede atacar de nuevo
+                        continue
+
+                    if vida==0 or vida<0: #Si la vida del usuario es menor o igual a 0, le mostramos un mensaje de Game Over
+                        text_lose=("¡GAME OVER!\n") #Le mostramos al usuario un mensaje de game over
+                        text(text_lose,1.0)
+                        exit() #Terminamos el código si se nos acaba la vida
+   
+                if atak==1 or 2 or 3: #Declaramos que pasa si el número random es 1,2,3
+                    vida_enem=vida_enem-fuerza #Si el número random es 1,2,3 , le quitamos vida al enemigo
+
+                    text_atacar=("¡Has atacado al enemigo!\n") #Le decimos al usuario que ha logrado atacar al enemigo
+                    text(text_atacar,0.05)
+
+                    text_vida_e=("Su vida ahora es ",vida_enem,'\n') #Mostramos la nueva vida del enemigo
+                    text(text_vida_e,0.05)
+
+                    if vida_enem==0 or vida_enem<0: #Si la vida del enemigo es igual o menor a 0, le decimos al usuario que gano
+                        text_lose=("¡LO LOGRASTE!\n") #Le mostramos el mensaje de victoria al usuario
+                        text(text_lose,0.05)
+                        exp=exp+exp_enem #Le sumamos experiencia al usuario
+                        stats() #Le mostramos sus stats de nuevo
+                        if exp>=5: #Establecemos que pasa si el usuario consigue 10 de experiencia
+                            nivel =nivel+1 #Le sumamos 1 a su nivel
+                            vida = vida+1.5 #Le agregamos 2 a la vida 
+                            velocidad = velocidad+1.5 #Le agregamos 2 a la velocidad
+                            fuerza = fuerza+1.5 #Le agregamos 2 a la fuerza
+                            text_subir=("¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos \n") #Le mostramos un mensaje de felicitación
+                            text(text_subir,0.05)
+                            stats()
+                        if nivel==1 and exp>=15:
+                            nivel = nivel+1
+                            vida = vida+2.5
+                            velocidad = velocidad + 2.5
+                            fuerza = fuerza + 2.5
+                            text_subir=("¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos \n") #Le mostramos un mensaje de felicitación
+                            text(text_subir,0.05)
+                            stats()
+                        break #Seguimos el código y mostramos de nuevo el menú
+
+                    if vida_enem>0: #Declaramos que pasa si la vida del enemigo es mayor a 0
+                        continue #Reiniciamos el loop
+
+        elif atac=="E" or "e":
+            text_escapado=("Esta bien, no te desanimes, volveras más fuerte que antes\n")
+            text(text_escapado,0.05)
+            break
+
+        else: #Declaramos que pasa si el usuario no presiona X o I
+            vida=vida-fuerza_enem #Si el usuario no presiona X, entonces se le quita vida
 
             text_atacado=("¡NO ATACASTE!. Ahora el enemigo te ha atacado\n") #Damos un mensaje de que no ataco
             text(text_atacado,0.05)
@@ -161,74 +322,53 @@ def diriol(): #Hacemos una función por enemigo para alterar simplementa las fue
                 text(text_lose,1.0)
                 exit()
 
-        if atac=="X" or atac=="x": #Declaramos que pasa si el usuario presiona X
-
-            atak=random.randint(0,1) #Generamos un número random, para que sucedad la posibilidad de que falle el ataque
-            #Declaramos que la variable sera un número integer random, de entre 0 a 1
-
-            if atak==1: #Declaramos que pasa si el número random es 1
-                vida=vida-fuerza_diriol #Si el número random es 1, le quitamos vida al enemigo
-                text_atacado=("¡FALLASTE!. Ahora el enemigo te ha atacado\n") #Le decimos al usuario que su vida fallo
-                text(text_atacado,0.05)
-
-                text_vida_u=("Tu vida ahora es ",vida,'\n') #Le mostramos su nueva vida
-                text(text_vida_u,0.05)
-            
-                if vida>0: #Si la vida del usuario es mayor a 0, puede atacar de nuevo
-                    continue
-
-                if vida==0 or vida<0: #Si la vida del usuario es menor o igual a 0, le mostramos un mensaje de Game Over
-                    text_lose=("¡GAME OVER!\n") #Le mostramos al usuario un mensaje de game over
-                    text(text_lose,1.0)
-                    exit() #Terminamos el código si se nos acaba la vida
-   
-            if atak==0: #Declaramos que pasa si el número random es 0
-                vida_diriol=vida_diriol-fuerza #Si el número random es 0, le quitamos vida al enemigo
-
-                text_atacar=("¡Has atacado al enemigo!\n") #Le decimos al usuario que ha logrado atacar al enemigo
-                text(text_atacar,0.05)
-
-                text_vida_d=("Su vida ahora es ",vida_diriol,'\n') #Mostramos la nueva vida del enemigo
-                text(text_vida_d,0.05)
-
-                if vida_diriol==0 or vida_diriol<0: #Si la vida del enemigo es igual o menor a 0, le decimos al usuario que gano
-                    text_lose=("¡LO LOGRASTE!\n") #Le mostramos el mensaje de victoria al usuario
-                    text(text_lose,0.05)
-                    exp=exp+1 #Le sumamos experiencia al usuario
-                    stats() #Le mostramos sus stats de nuevo
-                    if exp==5: #Establecemos que pasa si el usuario consigue 10 de experiencia
-                        nivel =nivel+1 #Le sumamos 1 a su nivel
-                        vida = vida+2 #Le agregamos 2 a la vida 
-                        velocidad = velocidad+2 #Le agregamos 2 a la velocidad
-                        fuerza = fuerza+2 #Le agregamos 2 a la fuerza
-                        text_subir=("¡Has subido de nivel! ¡FELICIDADES!\n") #Le mostramos un mensaje de felicitación
-                        text(text_subir,0.05)
-                        stats()
-                    break #Seguimos el código y mostramos de nuevo el menú
-
-                if vida_diriol>0: #Declaramos que pasa si la vida del enemigo es mayor a 0
-                    continue #Reiniciamos el loop
-
 def ataque(): #Declaramos que pasa si hay un enemigo
+    global nivel
     text_enemigo=("¡Oh no! un enemigo ha aparecido\n") #Mostramos un mensaje de que ha aparecido un enemigo
     text(text_enemigo,0.05)
-    diriol() #Llamamos la función del enemigo
+    if nivel==1:
+        enem_r=random.randint(0,2)
+        if enem_r==0:
+            diriol()
+        if enem_r==1:
+            bokoblin()
+        if enem_r==2:
+            baqus()
+        if nivel==2:
+            Uraelth()
+    if nivel==2:
+        enem_r=random.randint(0,5)
+        if enem_r==0:
+            diriol()
+        if enem_r==1:
+            bokoblin()
+        if enem_r==2:
+            baqus()
+        if enem_r==3:
+            diriol()
+        if enem_r==4:
+            bokoblin()
+        if enem_r==5:
+            baqus()
+        if nivel==3:
+            Nightmask()
+
     menu() #Regresamos al menú
 
 def menu(): #Creamos una función que nos permitira presentar el menú al principio de cada turno
 
     while True: #Iniciamos un loop dentro de el menú
         text_menu=("Que quieres hacer:\n") #Se le pregunta al usuario que quiere hacer
-        text(text_menu,0.05)
+        text(text_menu,0.03)
 
         text_mover=("M - Moverte\n") #Se muestra la opción de moverse
-        text(text_mover,0.05)
+        text(text_mover,0.03)
 
         text_stats=("S - Stats\n") #Se muestra la opción de ver stats
-        text(text_stats,0.05)
+        text(text_stats,0.03)
 
         text_inv=("I - Inventario\n") #Se muestra la opción de ver inventario
-        text(text_inv,0.05)
+        text(text_inv,0.03)
 
         opc=str(input()) #Tomamos la decisión del usuario
 
@@ -236,10 +376,12 @@ def menu(): #Creamos una función que nos permitira presentar el menú al princi
             if opc=="S" or opc=="s": #Declaramos que pasa si escoge S
                 stats() #Llamamos a la función de ver stats
                 menu() #Regresamos al menú
-            if opc=="M" or opc=="m": #Declaramos que pasa si escoge M
+            elif opc=="M" or opc=="m": #Declaramos que pasa si escoge M
                 mover() #Llamamos a la función de moverse
-            if opc=="I" or opc=="i": #Declaramos que pasa si escoge I
-                inv() #Llamamos a la función de inventario 
+                menu()
+            elif opc=="I" or opc=="i": #Declaramos que pasa si escoge I
+                inv() #Llamamos a la función de inventario
+                menu()
             else: #Declaramos que pasa si el usuario no escoge bien
                 text20=("Por favor escoge una de las opciones disponibles\n") #Se muestra un mensaje de que escoga bien
                 text(text20,0.05)
@@ -250,25 +392,25 @@ def mover(): #Definimos la función del movimiento
     while True: #Creamos un loop para escoger una dirección
 
         text_movin=("A donde te quieres mover:\n") #Se le pregunta al usuario a donde se quiere mover 
-        text(text_movin,0.05)
+        text(text_movin,0.03)
 
         text_norte=("W - Norte\n") #Le decimos que W es para norte
-        text(text_norte,0.05)
+        text(text_norte,0.03)
 
         text_oeste=("A - Oeste\n") #Le decimos que A es para oeste
-        text(text_oeste,0.05)
+        text(text_oeste,0.03)
 
         text_sur=("S - Sur\n") #Le decimos que S es para sur
-        text(text_sur,0.05)
+        text(text_sur,0.03)
 
         text_este=("D - Este\n") #Le decimos que D es para este
-        text(text_este,0.05)
+        text(text_este,0.03)
 
         dir=str(input()) #Tomamos la función de dirreción
 
         if dir!= "W" and dir != "w" and dir != "A" and dir != "a" and dir != "S" and dir != "s" and dir != "D" and dir != "d": #Declaramos que pasa si el usuario no escoge la dirección correcta
             text_mov_cor=("Esa no es una direccion, escoge bien\n") #Le decimos que no es una dirección correcta
-            text(text_mov_cor,0.05)
+            text(text_mov_cor,0.03)
             continue #Reiniciamos el loop
         
         else: #Si el usuario escoge una direcciónn correcta
@@ -278,24 +420,24 @@ def mover(): #Definimos la función del movimiento
         def text_dir():
             if dir=="W" or dir=="w":
                 text_mov=("Te has movido ",velocidad," cuadros al Norte \n") #Si el usuario escogio W le decimos que se movio, segun la velocidad, eso al norte
-                text(text_mov,0.05)
+                text(text_mov,0.03)
 
             if dir=="A" or dir=="a":
                 text_mov=("Te has movido ",velocidad," cuadros al Oeste \n") #Si el usuario escogio A le decimos que se movio, segun la velocidad, eso al oeste
-                text(text_mov,0.05)
+                text(text_mov,0.03)
 
             if dir=="S" or dir=="s":
                 text_mov=("Te has movido ",velocidad," cuadros al Sur \n") #Si el usuario escogio S le decimos que se movio, segun la velocidad, eso al sur
-                text(text_mov,0.05)
+                text(text_mov,0.03)
 
             if dir=="D" or dir=="d":
                 text_mov=("Te has movido ",velocidad," cuadros al Este \n") #Si el usuario escogio D le decimos que se movio, segun la velocidad, eso al este
-                text(text_mov,0.05)
+                text(text_mov,0.03)
             
         if turno==0: #Declaramos que pasa si el número random es 0
             text_dir()
             text_nada=("Vaya parece que no hay nada por aquí\n") #Le decimos al usuario que no hay nada alrededor
-            text(text_nada,0.05)
+            text(text_nada,0.03)
             menu() #LLamamos la función de el menú
             
         if turno==1: #Declaramos que pasa si el número random es 1
@@ -305,21 +447,168 @@ def mover(): #Definimos la función del movimiento
         if turno==2: #Declaramos que pasa si el número random es 2
             text_dir()
             text_pueblo=("Un pueblo,parece ser puedes obtener cosas aquí\n") #Si el número es 2, aparece un pueblo en el camino
-            text(text_pueblo,0.05)
+            text(text_pueblo,0.03)
             menu() #LLamaos al menú
     
         if turno==3: #Declaramos que pasa si el numero random es 3
             text_dir()
-            text_obj=("Has encontrado un artefacto\n") #Si el número random es 3, el jugador encuentra un objeto
-            text(text_obj,0.05)
+            obj() #Llamamos a la función de objeto
             menu() #Regresamos al menú
           
 def inv(): #Creamos una función para acceder al inventario
-    text_inv=("Aquí veras tu inventario\n") #Le decimos al usuario que aquí podra ver su inventario
-    text(text_inv,0.05)
-    menu() #Regresamos al menu
+        text_inv=("Escoge que quieres usar de tu inventario\n") #Le decimos al usuario que aquí podra ver su inventario
+        text(text_inv,0.03)
+        global anillos
+        global medallons
+        global cascos
+        global pocions
+        global fuerza
+        global vida
+        global velocidad
+        
+        text_ani=("Anillos - ",int(len(anillos)),'\n')
+        text(text_ani,0.05)
+        text_meda=("Medallon - ",int(len(medallons)),'\n')
+        text(text_meda,0.05)
+        text_casc=("Casco - ",int(len(cascos)),'\n')
+        text(text_casc,0.05)
+        text_pot=("Pocion - ",int(len(pocions)),'\n')
+        text(text_pot,0.05)
+            
+        text_a=("A - Anillo de poder\n")
+        text(text_a,0.03)
+        text_m=("M - Medallon de velocidad\n")
+        text(text_m,0.03)
+        text_c=("C - Casco encantado\n")
+        text(text_c,0.03)
+        text_p=("P - Pocion\n")
+        text(text_p,0.03)
+        text_s=("S-Salir\n")
+        text(text_s,0.03)
+            
+        while True:
+                
+            if int(len(anillos))==0 and int(len(medallons))==0 and int(len(cascos))==0 and int(len(pocions))==0:
+                text_nada_in=("Oh vaya, parece que no tienes nada en tu inventario\n")
+                text(text_nada_in,0.03)
+                break
+            
+            else:
 
-menu() #Ponemos al menú afuera, para después regresar al menu de turno
+                obj_inv=str(input())
+            
+                if obj_inv=="A" or obj_inv=="a":
+                    if int(len(anillos))<=0:
+                        text_n_a=("Ya no tienes aniilos disponibles,escoge algo más\n")
+                        text(text_n_a,0.03)
+                        continue
 
+                    else:
+                        if nivel==1 and fuerza>10:
+                            text_no_a=("Ya has llegado al limite de fuerza")
+                            text(text_no_a,0.03)
+                            break
+                        
+                        else:
+                            text_ainv=("Has obtenido +2 de fuerza\n")
+                            text(text_ainv,0.03)
+                            fuerza=fuerza+2
+                            anillos.remove("Anillo de poder") #Metodo para remover objeto de una lista obtenido de https://uniwebsidad.com/libros/python/capitulo-7/metodos-de-eliminacion 
+                            stats()
+                            break
+                
+                if obj_inv=="M" or obj_inv=="m":
+                    if int(len(medallons))<=0:
+                        text_n_m=("Ya no tienes medallones disponibles,escoge algo más\n")
+                        text(text_n_m,0.03)
+                        continue
+                
+                    else:
+                        if nivel==1 and velocidad>10:
+                            text_no_m=("Ya has llegado al limite de velocidad")
+                            text(text_no_m,0.03)
+                            break
+                        
+                        else:
+                            text_minv=("Has obtenido +2 de velocidad\n")
+                            text(text_minv,0.03)
+                            velocidad=velocidad+2
+                            medallons.remove("Medallon de velocidad")
+                            stats()
+                            break
+                    
+                if obj_inv=="C" or obj_inv=="c":
+                    if int(len(cascos))<=0:
+                        text_n_c=("Ya no tienes cascos disponibles,escoge algo más\n")
+                        text(text_n_c,0.03)
+                        continue
+            
+                    else:
+                        if nivel==1 and fuerza>10:
+                            text_no_c=("Ya has llegado al limite de fuerza y velocidad")
+                            text(text_no_c,0.03)
+                            break
+                            
+                        else:
+                            text_cinv=("Has usado el casco, has obtenido 3.5 de fuerza, pero has perdido 2.5 de velocidad\n")
+                            text(text_cinv,0.03)
+                            fuerza=fuerza+3.5
+                            velocidad=velocidad-2.5
+                            cascos.remove("Casco encantado")
+                            stats()
+                            break
+                    
+                if obj_inv=="P" or obj_inv=="p":
+                    if int(len(pocions))<=0:
+                        text_n_p=("Ya no tienes pociones disponibles,escoge algo más\n")
+                        text(text_n_p,0.03)
+                        continue
+                
+                    else:
+                        if nivel==1 and vida>10:
+                            text_no_p=("Ya has llegado al limite de vida")
+                            text(text_no_p,0.03)
+                            break
+                        else:
+                            text_cinv=("Has usado una poción, has obtenido 3 de vida\n")
+                            text(text_cinv,0.03)
+                            vida=vida+3  
+                            pocions.remove("Pocion")
+                            stats()
+                            break
+            
+                if obj_inv=="S" or obj_inv=="s":
+                    text_salir=("Regresa a tu aventura\n")
+                    text(text_salir,0.03)
+                    break
+                          
+                else:
+                    text_bien=("Disculpa pero no tienes eso en tu inventario, escoge algo más\n")
+                    text(text_bien,0.03)
+                    continue
 
+def obj(): #Creamos una función que genera objetos random
+    obj=random.randint(0,3) 
+    global invent
+    if obj==0:
+        text_anillopoder=("¡HAS ENCONTRADO UN ANILLO DE PODER!, usalo con sabiduría\n")
+        text(text_anillopoder,0.03)
+        anillos.append('Anillo de poder')
+
+    if obj==1:
+        text_medallonvida=("¡HAS ENCONTRADO UN MEDALLON DE VELOCIDAD!, usalo con sabiduría\n")
+        text(text_medallonvida,0.03)
+        medallons.append('Medallon de velocidad')
+
+    if obj==2:
+        text_cascoencantado=("Has encontrado un casco encantado, te dice que ofrece poder, pero cuidado, que tiene magia oscura\n")
+        text(text_cascoencantado,0.03)
+        cascos.append('Casco encantado')
+
+    if obj==3:
+        text_pocion=("¡HAS ENCONTRADO UNA POCION!, usala con sabiduría\n")
+        text(text_pocion,0.03)
+        pocions.append('Pocion')
+
+menu() #Ponemos al menú afuera, para después regresar al menu de turno 
 
