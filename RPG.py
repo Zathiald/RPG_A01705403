@@ -11,7 +11,18 @@ def text(texto,speed):#Hacemos una función para hacer que el texto aparezca flu
         print(c,end='') #Se da un espacio por letra
         sys.stdout.flush() #Extraemos la función flush de sys para hacer que el texto aparezca corrido
         sleep(speed) #Imprimimos una letra cada 0.1 segundos, podemos cambiar para imprimir el texto más lento
-        
+
+class color: #Valores para colores obtenidos de https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
+    PURPLE = '\033[95m' 
+    CYAN = '\033[96m' 
+    DARKCYAN = '\033[36m' 
+    BLUE = '\033[94m' 
+    GREEN = '\033[92m' 
+    YELLOW = '\033[93m' 
+    RED = '\033[91m' 
+    BOLD = '\033[1m' 
+    UNDERLINE = '\033[4m' 
+    END = '\033[0m'   
 #------------------------------------------GUARDAR Y CREAR VARIABLES-----------------------------------------------------------------------------------------------------------------------------------   
 
 #---Inventario
@@ -279,7 +290,7 @@ def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem,dinero_enem): #
                     text(text_vida_e,0.05)
 
                     if vida_enem==0 or vida_enem<0: #Si la vida del enemigo es igual o menor a 0, le decimos al usuario que gano
-                        text_win=("¡LO LOGRASTE!\n") #Le mostramos el mensaje de victoria al usuario
+                        text_win=(color.BOLD,color.BLUE,"¡LO LOGRASTE!\n",color.BOLD,color.BLUE,color.END) #Le mostramos el mensaje de victoria al usuario
                         text(text_win,0.05)
                         exp=exp+exp_enem #Le sumamos experiencia al usuario
                         dinero=dinero+dinero_enem
@@ -309,7 +320,7 @@ def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem,dinero_enem): #
                     text(text_vida_e,0.05)
 
                     if vida_enem==0 or vida_enem<0: #Si la vida del enemigo es igual o menor a 0, le decimos al usuario que gano
-                        text_win=("¡LO LOGRASTE!\n") #Le mostramos el mensaje de victoria al usuario
+                        text_win=(color.BOLD,color.BLUE,"¡LO LOGRASTE!\n",color.BOLD,color.BLUE,color.END) #Le mostramos el mensaje de victoria al usuario
                         text(text_win,0.05)
                         exp=exp+exp_enem #Le sumamos experiencia al usuario
                         dinero=dinero+dinero_enem
@@ -328,7 +339,7 @@ def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem,dinero_enem): #
 
         else: #Declaramos que pasa si el usuario no presiona X o I o E
             vida=vida-fuerza_enem #Si el número random es 0, le quitamos vida al enemigo
-            text_atacado=("¡NO ATACASTE!. Ahora el enemigo te ha atacado\n") #Le decimos al usuario que su vida fallo
+            text_atacado=(color.BOLD,"¡NO ATACASTE!",color.BOLD,color.END,"Ahora el enemigo te ha atacado\n") #Le decimos al usuario que su vida fallo
             text(text_atacado,0.05)
 
             text_vida_u=("Tu vida ahora es ",vida,'\n') #Le mostramos su nueva vida
@@ -338,7 +349,7 @@ def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem,dinero_enem): #
                 continue
 
             if vida==0 or vida<0: #Si la vida del usuario es menor o igual a 0, le mostramos un mensaje de Game Over
-                text_lose=("¡GAME OVER!\n") #Le mostramos al usuario un mensaje de game over
+                text_lose=(color.BOLD,color.RED,"¡GAME OVER!\n",color.BOLD,color.RED,color.END) #Le mostramos al usuario un mensaje de game over
                 text(text_lose,1.0)
                 exit() #Terminamos el código si se nos acaba la vida
                 
@@ -357,7 +368,7 @@ def enem_ataque(fuerza_mal):
             break
 
         if vida==0 or vida<0: #Si la vida del usuario es menor o igual a 0, le mostramos un mensaje de Game Over
-            text_lose=("¡GAME OVER!\n") #Le mostramos al usuario un mensaje de game over
+            text_lose=(color.BOLD,color.RED,"¡GAME OVER!\n",color.BOLD,color.RED,color.END) #Le mostramos al usuario un mensaje de game over
             text(text_lose,1.0)
             exit() #Terminamos el código si se nos acaba la vida
 
