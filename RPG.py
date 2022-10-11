@@ -78,7 +78,7 @@ velocidad = 4.0
 fuerza = 3.5 
 nivel = 2.0 
 exp = 0.0 
-dinero = 10.0 
+dinero = 100.0 
 co_x=0.0
 co_y=0.0 
 stat=[vida,velocidad,fuerza,nivel,exp,dinero,co_x,co_y]  
@@ -346,21 +346,28 @@ def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem,dinero_enem):
     vida_enem_t=("Vida: ",vida_enem,'\n') 
     text(vida_enem_t,0.5)
 
-    text_atac=("Presiona X para atacar \n") 
-    text(text_atac,0.05)
-    text_atac=("Presiona I para abrir inventario \n") 
-    text(text_atac,0.05)
-        
     while vida_enem>0:
+        text_atac=("Presiona X para atacar \n") 
+        text(text_atac,0.05)
+        text_atac=("Presiona I para abrir inventario \n") 
+        text(text_atac,0.05)
         atac=str(input()) 
         if atac=="I" or atac=="i":
             inv()
-
+            text_atac=("Presiona X para atacar \n") 
+            text(text_atac,0.05)
+            text_atac=("Presiona I para abrir inventario \n") 
+            text(text_atac,0.05)
+            atac=str(input()) 
         if atac=="X" or atac=="x":
             if velocidad<velocidad_enem:
                 atak=random.randint(0,1) 
                 if atak==0:
                     enem_ataque(fuerza_enem)
+                    text_atac=("Presiona X para atacar \n") 
+                    text(text_atac,0.05)
+                    text_atac=("Presiona I para abrir inventario \n") 
+                    text(text_atac,0.05)
                     atac=str(input())
 
                 if atak==1: 
@@ -390,6 +397,10 @@ def enem(name_enem,fuerza_enem,velocidad_enem,vida_enem,exp_enem,dinero_enem):
 
                 if atak==0: 
                     enem_ataque(fuerza_enem)
+                    text_atac=("Presiona X para atacar \n") 
+                    text(text_atac,0.05)
+                    text_atac=("Presiona I para abrir inventario \n") 
+                    text(text_atac,0.05)
                     atac=str(input())
         
                 if atak==1 or 2 or 3: 
@@ -652,7 +663,7 @@ def mover():
             text(text_mov_cor,0.03)
             mover()
 
-    text_dir()
+    text_dir(dir)
     turno=random.randint(0,3) 
             
     if turno==0: 
@@ -688,10 +699,10 @@ def mover():
                 text(text_ilegal,0.03)
                 dar=input()        
             if dar=="D" or dar=="d":
-                peluches.remove("Peluche")
+                peluches.remove("1")
                 text_feliz=("Oh la niña se ve super alegre y parece ser te ha dado, un un lanzagranadas?, eehhh mejor no cuestiones, quien sabe por donde ha estado esa niña\n")
                 text(text_feliz,0.03)
-                granadas.append("Lanzagranadas")
+                granadas.append('1')
             if dar=="N" or dar=="n":
                 text_triste=("Mira nomás lo que hiciste, ahora la niña esta triste y llorando, te sientes feliz contigo?\n")
                 text(text_triste)
@@ -701,14 +712,16 @@ def mover():
 
 def inv(): 
     """
-    (uso de variables, uso de funciones,uso de input, uso de ciclos,uso de condicionales)
+    (uso de variables, uso de funciones,uso de input,uso de condicionales)
     recibe: valor de listas de objetosmvida,velocidad y fuerza del usuario
     se le muestra al usuario que opciones tiene disponible de inventario
     *si el usuario no tiene nada, se le regresa al menú
     se actualizan los datos según el objeto que selecciono el usuario
     devuelve: inventario y stats actualizadas del usuario
     """
-    text_inv=("Escoge que quieres usar de tu inventario\n") #Le decimos al usuario que aquí podra ver su inventario
+    """Metodo para remover objeto de una lista obtenido de https://uniwebsidad.com/libros/python/capitulo-7/metodos-de-eliminacion"""
+
+    text_inv=("Escoge que quieres usar de tu inventario\n") 
     text(text_inv,0.03)
     global anillos
     global medallons
@@ -723,12 +736,7 @@ def inv():
     global super_pocions
     global brazaletes
             
-    if int(len(anillos))==0 and int(len(medallons))==0 and int(len(cascos))==0 and int(len(manzanas))==0 and int(len(espadas))==0 and int(len(pocions))==0 and int(len(botas))==0 and int(len(martillos))==0 and int(len(super_pocions))==0 and int(len(brazaletes))==0 and int(len(peluches))==0 and int(len(sombreros))==0 and int(len(aks))==0 and int(len(granadas))==0 and int(len(cangureras))==0 and int(len(afros))==0 and int(len(rayos))==0:
-        text_nada_in=("Oh vaya, parece que no tienes nada en tu inventario\n")
-        text(text_nada_in,0.03)
-        
-    else:
-            
+    def texto_inve():
         text_ani=("Anillos - ",int(len(anillos)),'\n')
         text(text_ani,0.05)
         text_meda=("Medallon - ",int(len(medallons)),'\n')
@@ -845,955 +853,583 @@ def inv():
                 
         text_s=("S-Salir\n")
         text(text_s,0.03)
+
+    if int(len(anillos))==0 and int(len(medallons))==0 and int(len(cascos))==0 and int(len(manzanas))==0 and int(len(espadas))==0 and int(len(pocions))==0 and int(len(botas))==0 and int(len(martillos))==0 and int(len(super_pocions))==0 and int(len(brazaletes))==0 and int(len(peluches))==0 and int(len(sombreros))==0 and int(len(aks))==0 and int(len(granadas))==0 and int(len(cangureras))==0 and int(len(afros))==0 and int(len(rayos))==0:
+        text_nada_in=("Oh vaya, parece que no tienes nada en tu inventario\n")
+        text(text_nada_in,0.03)
     
+    else: 
+        texto_inve()
         obj_inv=str(input())
         
         if obj_inv=="A" or obj_inv=="a":
             if int(len(anillos))<=0:
                 text_n_a=("Ya no tienes aniilos disponibles,escoge algo más\n")
                 text(text_n_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==1 and fuerza>=20:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==2 and fuerza>=30:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==3 and fuerza>=40:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==4 and fuerza>=50:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
             else:
                 text_ainv=("Has obtenido 1 de fuerza\n")
                 text(text_ainv,0.03)
                 fuerza=fuerza+1
-                anillos.remove("Anillo de poder") #Metodo para remover objeto de una lista obtenido de https://uniwebsidad.com/libros/python/capitulo-7/metodos-de-eliminacion 
+                anillos.remove("1") 
                 stats()
-                inv()
+                texto_inve()
+                obj_inv=str(input())
             
         if obj_inv=="M" or obj_inv=="m":
-            if int(len(medallons))<=0:
+            if int(len(medallons))==0:
                 text_n_m=("Ya no tienes medallones disponibles,escoge algo más\n")
                 text(text_n_m,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
             
             if nivel==1 and velocidad>=15:
                 text_no_m=("Ya has llegado al limite de velocidad")
                 text(text_no_m,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==2 and velocidad>=25:
                 text_no_m=("Ya has llegado al limite de velocidad")
                 text(text_no_m,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==3 and velocidad>=35:
                 text_no_m=("Ya has llegado al limite de velocidad")
                 text(text_no_m,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==4 and velocidad>=45:
                 text_no_m=("Ya has llegado al limite de velocidad")
                 text(text_no_m,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
+
             else:
                 text_minv=("Has obtenido 1.5 de velocidad\n")
                 text(text_minv,0.03)
                 velocidad=velocidad+1.5
-                medallons.remove("Medallon de velocidad")
+                medallons.remove("1")
                 stats()
-                inv()
+                texto_inve()
+                obj_inv=str(input())
                 
         if obj_inv=="C" or obj_inv=="c":
             if int(len(cascos))<=0:
                 text_n_c=("Ya no tienes cascos disponibles,escoge algo más\n")
                 text(text_n_c,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
     
             if nivel==1 and fuerza>=20:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==2 and fuerza>=30:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==3 and fuerza>=40:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             if nivel==4 and fuerza>=50:
                 text_no_a=("Ya has llegado al limite de fuerza")
                 text(text_no_a,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
             else:
                 text_cinv=("Has usado el casco, has obtenido 3.5 de fuerza, pero has perdido 4 de velocidad\n")
                 text(text_cinv,0.03)
                 fuerza=fuerza+3.5
                 velocidad=velocidad-4
-                cascos.remove("Casco encantado")
+                cascos.remove("1")
                 stats()
-                inv()
+                texto_inve()
+                obj_inv=str(input())
                     
         if obj_inv=="W" or obj_inv=="w":
             if int(len(manzanas))<=0:
                 text_n_ma=("Ya no tienes manzanas disponibles,escoge algo más\n")
                 text(text_n_ma,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==1 and vida>=20:
+            elif nivel==1 and vida>=20:
                 text_no_p=("Ya has llegado al limite de vida\n")
                 text(text_no_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==2 and vida>=45:
+            elif nivel==2 and vida>=45:
                 text_no_p=("Ya has llegado al limite de vida\n")
                 text(text_no_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==3 and vida>=65:
+            elif nivel==3 and vida>=65:
                 text_no_p=("Ya has llegado al limite de vida\n")
                 text(text_no_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==4 and vida>=90:
+            elif nivel==4 and vida>=90:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             else:
                 text_cinv=("Has usado una manzana, has obtenido 1 de vida\n")
                 text(text_cinv,0.03)
                 vida=vida+1 
-                manzanas.remove("Manzana")
+                manzanas.remove("1")
                 stats()
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 #------OBJ NIVEL 1                    
         if int(len(espadas))==1 and obj_inv=="E" or obj_inv=="e":
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_esp=str(input())
+            if nivel==1 and fuerza>=20:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            if opc_esp=="G" or opc_esp=="g":
-                    text_g_espada=("Has guardado tu espada\n")
-                    text(text_g_espada,0.03)
-                    fuerza=fuerza-5
-                    stats()
-                    opc_esp=str(input())
+            if nivel==2 and fuerza>=30:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            if opc_esp=="A" or opc_esp=="a":
-                    if int(len(martillos))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-7
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    if int(len(aks))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-10
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    if int(len(cangureras))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-15
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    elif int(len(martillos))==1 and int(len(aks))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-10
-                        fuerza=fuerza-7
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    elif int(len(martillos))==1 and int(len(cangureras))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-15
-                        fuerza=fuerza-7
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    elif int(len(cangureras))==1 and int(len(aks))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-10
-                        fuerza=fuerza-15
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    elif int(len(martillos))==1 and int(len(aks))==1 and int(len(martillos))==1:
-                        text_a_espada=("Has escogido tu espada\n")
-                        text(text_a_espada,0.03)
-                        fuerza=fuerza-15
-                        fuerza=fuerza-10
-                        fuerza=fuerza-7
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
-                    else:
-                        text_n_espada=("Has escogido tu espada\n")
-                        text(text_n_espada,0.03)
-                        fuerza=fuerza+5
-                        stats()
-                        opc_esp=str(input())
+            if nivel==3 and fuerza>=40:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            if opc_esp=="E" or opc_esp=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
-
-            while opc_esp!="E" or opc_esp!="e" or opc_esp!="G" or opc_esp!="g" or opc_esp!="A" or opc_esp!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_esp=str(input())
+            if nivel==4 and fuerza>=50:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+            else:
+                text_n_espada=("Has escogido tu espada\n")
+                text(text_n_espada,0.03)
+                fuerza=fuerza+5
+                espadas.remove("1")
+                stats()
+                texto_inve()
+                obj_inv=str(input())
                             
         if int(len(pocions))>0 and obj_inv=="P" or obj_inv=="p":
             if int(len(pocions))<=0:
                 text_n_p=("Ya no tienes pociones disponibles,escoge algo más\n")
                 text(text_n_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==1 and vida>=20:
+            elif nivel==1 and vida>=20:
                 text_no_p=("Ya has llegado al limite de vida\n")
                 text(text_no_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
                 
-            if nivel==2 and vida>=45:
+            elif nivel==2 and vida>=45:
                 text_no_p=("Ya has llegado al limite de vida\n")
                 text(text_no_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==3 and vida>=65:
+            elif nivel==3 and vida>=65:
                 text_no_p=("Ya has llegado al limite de vida\n")
                 text(text_no_p,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==4 and vida>=90:
+            elif nivel==4 and vida>=90:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             else:
                 text_cinv=("Has usado una poción, has obtenido 3 de vida\n")
                 text(text_cinv,0.03)
                 vida=vida+3  
-                pocions.remove("Pocion")
+                pocions.remove("1")
                 stats()
-                inv()
+                texto_inve()
+                obj_inv=str(input())
                 
         if int(len(botas))==1 and obj_inv=="B" or obj_inv=="b":         
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_bot=str(input())
+            if nivel==1 and velocidad>=15:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            if opc_bot=="G" or opc_bot=="g":
-                text_g_botas=("Has guardado tus botas\n")
-                text(text_g_botas,0.03)
-                velocidad=velocidad-4
+            if nivel==2 and velocidad>=25:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==3 and velocidad>=35:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==4 and velocidad>=45:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else:
+                text_n_botas=("Has escogido tus botas\n")
+                text(text_n_botas,0.03)
+                velocidad=velocidad+4
+                botas.remove("1")
                 stats()
-                opc_bot=str(input())
-            if opc_bot=="A" or opc_bot=="a":
-                if int(len(brazaletes))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-6
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                if int(len(sombreros))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                if int(len(rayos))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                elif int(len(brazaletes))==1 and int(len(sombreros))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad-6
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                elif int(len(brazaletes))==1 and int(len(rayos))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad-15
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                elif int(len(rayos))==1 and int(len(sombreros))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad-8
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                elif int(len(brazaletes)) and int(len(rayos))==1 and int(len(sombreros))==1:
-                    text_a_botas=("Has escogido tus botas\n")
-                    text(text_a_botas,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad-8
-                    velocidad=velocidad-6
-                    velocidad=velocidad+4
-                    stats()
-                    opc_bot=str(input())
-                else:
-                    text_n_botas=("Has escogido tus botas\n")
-                    text(text_n_botas,0.03)
-                    velocidad=velocidad+4
-                    opc_bot=str(input())
-    
-            if opc_bot=="E" or opc_bot=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
-
-            while opc_bot!="E" or opc_bot!="e" or opc_bot!="G" or opc_bot!="g" or opc_bot!="A" or opc_bot!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_bot=str(input())
+                texto_inve()
+                obj_inv=str(input())
                 
 #-----------OBJ NIVEL 2
         if int(len(martillos))==1 and obj_inv=="MA" or obj_inv=="ma":
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_m=str(input())
+            if nivel==1 and fuerza>=20:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            if opc_m=="G" or opc_m=="g":
-                text_g_martillo=("Has guardado tu martillo\n")
-                text(text_g_martillo,0.03)
-                fuerza=fuerza-7
+            if nivel==2 and fuerza>=30:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==3 and fuerza>=40:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==4 and fuerza>=50:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else:
+                text_n_martillo=("Has escogido tu martillo\n")
+                text(text_n_martillo,0.03)
+                fuerza=fuerza+7
+                martillos.remove("1")
                 stats()
-                opc_m=str(input())
-
-            if opc_m=="A" or opc_m=="a":
-                if int(len(espadas))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-5
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                if int(len(aks))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-10
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                if int(len(cangureras))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                elif int(len(espadas))==1 and int(len(aks))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-10
-                    fuerza=fuerza-5
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                elif int(len(espadas))==1 and int(len(cangureras))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza-5
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                elif int(len(cangureras))==1 and int(len(aks))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza-10
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                elif int(len(cangureras))==1 and int(len(aks))==1 and int(len(espadas))==1:
-                    text_a_martillo=("Has escogido tu martillo\n")
-                    text(text_a_martillo,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza-10
-                    fuerza=fuerza-5
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-                else:
-                    text_n_martillo=("Has escogido tu martillo\n")
-                    text(text_n_martillo,0.03)
-                    fuerza=fuerza+7
-                    stats()
-                    opc_m=str(input())
-
-            if opc_m=="E" or opc_m=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
-
-            while opc_m!="E" or opc_m!="e" or opc_m!="G" or opc_m!="g" or opc_m!="A" or opc_m!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_bot=str(input())
-
+                texto_inve()
+                obj_inv=str(input())
                             
         if int(len(super_pocions))>0 and (obj_inv=="SP" or obj_inv=="sp"):
             if int(len(super_pocions))<=0:
                 text_n_sp=("Ya no tienes super pociones disponibles,escoge algo más\n")
                 text(text_n_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==1 and vida>=20:
+            elif nivel==1 and vida>=20:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==2 and vida>=45:
+            elif nivel==2 and vida>=45:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==3 and vida>=65:
+            elif nivel==3 and vida>=65:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==4 and vida>=90:
+            elif nivel==4 and vida>=90:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             else:
                 text_cinv=("Has usado una super poción, has obtenido 5 de vida\n")
                 text(text_cinv,0.03)
                 vida=vida+5 
-                super_pocions.remove("Super Pocion")
+                super_pocions.remove("1")
                 stats()
-                inv()
+                texto_inve()
+                obj_inv=str(input())
                 
         if int(len(brazaletes))==1 and obj_inv=="BR" or obj_inv=="br":         
-                text_a=("G - Guardar\n")
-                text(text_a,0.03)
-                text_m=("A - Agarrrar\n")
-                text(text_m,0.03)
-                text_c=("E - Escoger algo más\n")
-                text(text_c,0.03)
-                opc_br=str(input())
+            if nivel==1 and velocidad>=15:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-                if opc_br=="G" or opc_br=="g":
-                    text_g_bra=("Has guardado tus brazaletes\n")
-                    text(text_g_bra,0.03)
-                    velocidad=velocidad-6
-                    stats()
-                    opc_br=str(input())
+            if nivel==2 and velocidad>=25:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-                if opc_br=="A" or opc_br=="a":
-                    if int(len(botas))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-4
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    if int(len(sombreros))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-8
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    if int(len(rayos))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-15
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    elif int(len(botas))==1 and int(len(sombreros))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-8
-                        velocidad=velocidad-4
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    elif int(len(botas))==1 and int(len(rayos))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-15
-                        velocidad=velocidad-4
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    elif int(len(sombreros))==1 and int(len(rayos))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-15
-                        velocidad=velocidad-8
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    elif int(len(sombreros))==1 and int(len(sombreros)) and int(len(rayos))==1:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad-15
-                        velocidad=velocidad-8
-                        velocidad=velocidad-4
-                        velocidad=velocidad+6
-                        stats()
-                        opc_br=str(input())
-                    else:
-                        text_a_bra=("Has escogido tus brazaletes\n")
-                        text(text_a_bra,0.03)
-                        velocidad=velocidad+6
-                        opc_br=str(input())
-                        
-                if opc_br=="E" or opc_br=="e":
-                    text_e=("Vuelve a tu inventario y escoge algo más")
-                    text(text_e,0.03)
-                    inv()
+            if nivel==3 and velocidad>=35:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-                while opc_br!="E" or opc_br!="e" or opc_br!="G" or opc_br!="g" or opc_br!="A" or opc_br!="a":
-                    text_no=("Esa no es una opción valida")
-                    text(text_no,0.03)
-                    opc_bot=str(input())
-                    
+            if nivel==4 and velocidad>=45:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else:
+                text_a_bra=("Has escogido tus brazaletes\n")
+                text(text_a_bra,0.03)
+                velocidad=velocidad+6
+                brazaletes.remove("1")
+                stats()
+                texto_inve()
+                obj_inv=str(input())
+                                        
 #----------OBJ NIVEL 3
         if int(len(peluches))==1 and obj_inv=="PE" or obj_inv=="pe":
             text_pel=("Es un peluche bonito, pero no puedes hacer mucho con el\n")
             text(text_pel,0.03)
-            inv()
+            texto_inve()
+            obj_inv=str(input())
 
         if int(len(sombreros))>0 and (obj_inv=="S" or obj_inv=="s"):
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_som=str(input())
-            if opc_som=="G" or opc_som=="g":
-                text_g_bra=("Has guardado tu sombrero\n")
-                text(text_g_bra,0.03)
-                velocidad=velocidad-8
-                stats()
-                opc_som=str(input())
-            if opc_som=="A" or opc_som=="a":
-                if int(len(botas))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-4
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                if int(len(brazaletes))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-6
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                if int(len(rayos))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                elif int(len(botas))==1 and int(len(brazaletes))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-6
-                    velocidad=velocidad-4
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                elif int(len(botas))==1 and int(len(rayos))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad-4
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                elif int(len(brazaletes))==1 and int(len(rayos))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad-6
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                elif int(len(sombreros))==1 and int(len(brazaletes)) and int(len(rayos))==1:
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-15
-                    velocidad=velocidad-6
-                    velocidad=velocidad-4
-                    velocidad=velocidad+8
-                    stats()
-                    opc_som=str(input())
-                else: 
-                    text_a_bra=("Has escogido tu sombrero\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad+8
-                    opc_som=str(input())
-                        
-            if opc_som=="E" or opc_som=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
+            if nivel==1 and velocidad>=15:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            while opc_som!="E" or opc_som!="e" or opc_som!="G" or opc_som!="g" or opc_som!="A" or opc_som!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_bot=str(input())
-                    
+            if nivel==2 and velocidad>=25:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==3 and velocidad>=35:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==4 and velocidad>=45:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else: 
+                text_a_bra=("Has escogido tu sombrero\n")
+                text(text_a_bra,0.03)
+                velocidad=velocidad+8
+                sombreros.remove("1")
+                stats()
+                texto_inve()
+                obj_inv=str(input())
+                                    
 
         if int(len(aks))==1 and obj_inv=="AK" or obj_inv=="ak":         
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_ak=str(input())
-            if opc_ak=="G" or opc_ak=="g":
-                text_g_ak=("Has guardado tu AK-47\n")
-                text(text_g_ak,0.03)
-                fuerza=fuerza-10
-                stats()
-                opc_ak=str(input())
-            if opc_ak=="A" or opc_ak=="a":
-                if int(len(martillos))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-7
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                if int(len(espadas))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-5
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                if int(len(cangureras))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                elif int(len(espadas))==1 and int(len(martillos))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-7
-                    fuerza=fuerza-5
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                elif int(len(espadas))==1 and int(len(cangureras))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza-5
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                elif int(len(cangureras))==1 and int(len(martillos))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza-7
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                elif int(len(espadas))==1 and int(len(martillos))==1 and int(len(espadas))==1:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza-15
-                    fuerza=fuerza-7
-                    fuerza=fuerza-5
-                    fuerza=fuerza+10
-                    stats()
-                    opc_ak=str(input())
-                else:
-                    text_a_ak=("Has escogido tu AK-47\n")
-                    text(text_a_ak,0.03)
-                    fuerza=fuerza+10
-                    opc_ak=str(input())
-                        
-            if opc_ak=="E" or opc_ak=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
+            if nivel==1 and fuerza>=20:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            while opc_ak!="E" or opc_ak!="e" or opc_ak!="G" or opc_ak!="g" or opc_ak!="A" or opc_ak!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_bot=str(input())
-                    
-                        
+            if nivel==2 and fuerza>=30:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==3 and fuerza>=40:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==4 and fuerza>=50:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else:
+                text_a_ak=("Has escogido tu AK-47\n")
+                text(text_a_ak,0.03)
+                fuerza=fuerza+10
+                aks.remove("1")
+                stats()
+                texto_inve()
+                obj_inv=str(input())
+                                 
             
 #-----------OBJ NIVEL 4
         if int(len(cangureras))==1 and obj_inv=="MA" or obj_inv=="ma":
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_bat=str(input())
-            if opc_bat=="G" or opc_bat=="g":
-                text_g_bat=("Has guardado tu baticangurera\n")
-                text(text_g_bat,0.03)
-                fuerza=fuerza-15
-                stats()
-                opc_bat=str(input())
-            if opc_bat=="A" or opc_bat=="a":
-                if int(len(espadas))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-5
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-                if int(len(martillos))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-7
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-                if int(len(aks))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-10
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-                elif int(len(espadas))==1 and int(len(aks))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-10
-                    fuerza=fuerza-5
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-                elif int(len(espadas))==1 and int(len(martillos))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-7
-                    fuerza=fuerza-5
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-                elif int(len(martillos))==1 and int(len(aks))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-10
-                    fuerza=fuerza-7
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-                elif int(len(espadas))==1 and int(len(martillos))==1 and int(len(aks))==1:
-                    text_a_bat=("Has escogido tu baticangurera\n")
-                    text(text_a_bat,0.03)
-                    fuerza=fuerza-10
-                    fuerza=fuerza-7
-                    fuerza=fuerza-5
-                    fuerza=fuerza+15                                
-                    stats()
-                    opc_bat=str(input())
-                else:
-                    text_n_bat=("Has escogido tu baticangurera\n")
-                    text(text_n_bat,0.03)
-                    fuerza=fuerza+15
-                    stats()
-                    opc_bat=str(input())
-            if opc_bat=="E" or opc_bat=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
+            if nivel==1 and fuerza>=20:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
 
-            while opc_bat!="E" or opc_bat!="e" or opc_bat!="G" or opc_bat!="g" or opc_bat!="A" or opc_bat!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_bot=str(input())    
-                
+            if nivel==2 and fuerza>=30:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==3 and fuerza>=40:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==4 and fuerza>=50:
+                text_no_a=("Ya has llegado al limite de fuerza")
+                text(text_no_a,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else:
+                text_n_bat=("Has escogido tu baticangurera\n")
+                text(text_n_bat,0.03)
+                fuerza=fuerza+15
+                cangureras.remove("1")
+                stats()
+                texto_inve()
+                obj_inv=str(input())
             
         if int(len(rayos))>0 and (obj_inv=="R" or obj_inv=="r"):
-            text_a=("G - Guardar\n")
-            text(text_a,0.03)
-            text_m=("A - Agarrrar\n")
-            text(text_m,0.03)
-            text_c=("E - Escoger algo más\n")
-            text(text_c,0.03)
-            opc_ray=str(input())
-            if opc_ray=="G" or opc_ray=="g":
-                text_g_bra=("Has guardado tu rayo\n")
-                text(text_g_bra,0.03)
-                velocidad=velocidad-15
-                stats()
-                opc_ray=str(input())
-            if opc_ray=="A" or opc_ray=="a":
-                if int(len(botas))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-4
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                if int(len(brazaletes))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-6
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                if int(len(sombreros))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                elif int(len(botas))==1 and int(len(brazaletes))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-6
-                    velocidad=velocidad-4
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                elif int(len(botas))==1 and int(len(sombreros))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad-4
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                elif int(len(brazaletes))==1 and int(len(sombreros))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad-6
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                elif int(len(sombreros))==1 and int(len(brazaletes)) and int(len(sombreros))==1:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad-8
-                    velocidad=velocidad-6
-                    velocidad=velocidad-4
-                    velocidad=velocidad+15
-                    stats()
-                    opc_ray=str(input())
-                else:
-                    text_a_bra=("Has escogido tu rayo\n")
-                    text(text_a_bra,0.03)
-                    velocidad=velocidad+15
-                    opc_ray=str(input())
+            if nivel==1 and velocidad>=15:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==2 and velocidad>=25:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==3 and velocidad>=35:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            if nivel==4 and velocidad>=45:
+                text_no_m=("Ya has llegado al limite de velocidad")
+                text(text_no_m,0.03)
+                texto_inve()
+                obj_inv=str(input())
+
+            else:
+                text_a_bra=("Has escogido tu rayo\n")
+                text(text_a_bra,0.03)
+                velocidad=velocidad+15
+                rayos.remove("1")
+                texto_inve()
+                obj_inv=str(input())
                         
-            if opc_ray=="E" or opc_ray=="e":
-                text_e=("Vuelve a tu inventario y escoge algo más")
-                text(text_e,0.03)
-                inv()
-
-            while opc_bat!="E" or opc_bat!="e" or opc_bat!="G" or opc_bat!="g" or opc_bat!="A" or opc_bat!="a":
-                text_no=("Esa no es una opción valida")
-                text(text_no,0.03)
-                opc_bot=str(input())   
-
         if int(len(afros))==1 and (obj_inv=="AF" or obj_inv=="af"):
             if int(len(afros))<=0:
                 text_n_sp=("Ya no tienes afros disponibles,escoge algo más\n")
                 text(text_n_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==1 and vida>=20:
+            elif nivel==1 and vida>=20:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==2 and vida>=45:
+            elif nivel==2 and vida>=45:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==3 and vida>=65:
+            elif nivel==3 and vida>=65:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
-            if nivel==4 and vida>=90:
+            elif nivel==4 and vida>=90:
                 text_no_sp=("Ya has llegado al limite de vida\n")
                 text(text_no_sp,0.03)
-                inv()
+                texto_inve()
+                obj_inv=str(input())
 
             else:
                 text_cinv=("Te has puesto un afro, has obtenido 12 de vida\n")
                 text(text_cinv,0.03)
                 vida=vida+12
-                afros.remove("Afro")
+                afros.remove("1")
                 stats()
-                inv() 
+                texto_inve()
+                obj_inv=str(input())
 
         if obj_inv=="S" or obj_inv=="s":
             text_salir=("Regresa a tu aventura\n")
             text(text_salir,0.03)
-            return
 
         else:
             text_bien=("Disculpa pero no tienes eso en tu inventario, escoge algo más\n")
             text(text_bien,0.03)
+            texto_inve()
             obj_inv=str(input())
 
 def obj():
@@ -1809,22 +1445,22 @@ def obj():
     if obj==0:
         text_anillopoder=("¡HAS ENCONTRADO UN ANILLO DE PODER!, usalo con sabiduría\n")
         text(text_anillopoder,0.03)
-        anillos.append('Anillo de poder')
+        anillos.append('1')
 
     if obj==1:
         text_medallonvida=("¡HAS ENCONTRADO UN MEDALLON DE VELOCIDAD!, usalo con sabiduría\n")
         text(text_medallonvida,0.03)
-        medallons.append('Medallon de velocidad')
+        medallons.append('1')
 
     if obj==2:
         text_cascoencantado=("Has encontrado un casco encantado, te dice que ofrece poder, pero cuidado, que tiene magia oscura\n")
         text(text_cascoencantado,0.03)
-        cascos.append('Casco encantado')
+        cascos.append('1')
 
     if obj==3:
         text_pocion=("¡HAS ENCONTRADO UNA MANZANA!, yummy\n")
         text(text_pocion,0.03)
-        manzanas.append('Manzana')
+        manzanas.append('1')
         
 def tienda():
     """
@@ -1906,55 +1542,55 @@ def tienda():
         text(text_dinero,0.05)
         op_store=str(input())
         if op_store=="EF" or op_store=="ef":
-            if dinero>=10:
-                text_esp_inv=("La espada poderosa se ha agregado a tu inventario\n")
-                text(text_esp_inv,0.03)
-                espadas.append("Espada de fuego")
-                dinero=dinero-10
-                tienda()
-                            
-            elif int(len(espadas))==1:
+            if int(len(espadas))==1:
                 text_esp_full=("Ya tienes esta espada en tu inventario, porque no intentas escoger algo más\n")
                 text(text_esp_full,0.03)
                 tienda()
+
+            elif dinero>=10:
+                text_esp_inv=("La espada poderosa se ha agregado a tu inventario\n")
+                text(text_esp_inv,0.03)
+                espadas.append("1")
+                dinero=dinero-10
+                tienda()
                             
-            if dinero<10:
+            elif dinero<10:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 tienda()
                             
         if op_store=="P" or op_store=="p":
-            if dinero>=2:
-                text_p_inv=("Has comprado una pocion, se ha guardado en tu inventario\n")
-                text(text_p_inv,0.03)
-                pocions.append("Pocion")
-                dinero=dinero-2
-                tienda()
-                            
             if int(len(pocions))==5:
                 text_p_full=("Ya tienes suficiente pociones no crees?\n")
                 text(text_p_full,0.03)
                 tienda()
-                            
-            if dinero<2:
+                                
+            elif dinero>=2:
+                text_p_inv=("Has comprado una pocion, se ha guardado en tu inventario\n")
+                text(text_p_inv,0.03)
+                pocions.append("1")
+                dinero=dinero-2
+                tienda()
+                                                       
+            elif dinero<2:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 tienda()
                         
         if op_store=="BF" or op_store=="bf":
-            if dinero>=5:
-                text_b_inv=("Las botas flameantes se han agregado a tu inventario\n")
-                text(text_b_inv,0.03)
-                botas.append("Botas flameantes")
-                dinero=dinero-5
-                tienda()
-
-            elif int(len(botas))==1:
+            if int(len(botas))==1:
                 text_bot_full=("Ya tienes estas botas en tu inventario, porque no intentas escoger algo más\n")
                 text(text_bot_full,0.03)
                 tienda()
-                            
-            if dinero<5:
+
+            elif dinero>=5:
+                text_b_inv=("Las botas flameantes se han agregado a tu inventario\n")
+                text(text_b_inv,0.03)
+                botas.append("1")
+                dinero=dinero-5
+                tienda()
+
+            elif dinero<5:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 tienda()
@@ -1975,47 +1611,50 @@ def tienda():
         text(text_dinero,0.05)
         op_store=str(input())
         if op_store=="EF" or op_store=="ef":
-            if dinero>=10:
-                text_esp_inv=("La espada poderosa se ha agregado a tu inventario\n")
-                text(text_esp_inv,0.03)
-                espadas.append("Espada de fuego")
-                dinero=dinero-10
-                op_tiend_1()     
-            elif int(len(espadas))==1:
+            if int(len(espadas))==1:
                 text_esp_full=("Ya tienes esta espada en tu inventario, porque no intentas escoger algo más\n")
                 text(text_esp_full,0.03)
-                op_tiend_1()       
-            if dinero<10:
+                op_tiend_1()  
+
+            elif dinero>=10:
+                text_esp_inv=("La espada poderosa se ha agregado a tu inventario\n")
+                text(text_esp_inv,0.03)
+                espadas.append("1")
+                dinero=dinero-10
+                op_tiend_1()     
+     
+            elif dinero<10:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 op_tiend_1()       
         if op_store=="P" or op_store=="p":
-            if dinero>=2:
-                text_p_inv=("Has comprado una pocion, se ha guardado en tu inventario\n")
-                text(text_p_inv,0.03)
-                pocions.append("Pocion")
-                dinero=dinero-2
-                op_tiend_1()       
-            elif int(len(pocions))==5:
+            if int(len(pocions))==5:
                 text_p_full=("Ya tienes suficiente pociones no crees?\n")
                 text(text_p_full,0.03)
-                op_tiend_1()       
-            if dinero<2:
+                op_tiend_1() 
+
+            elif dinero>=2:
+                text_p_inv=("Has comprado una pocion, se ha guardado en tu inventario\n")
+                text(text_p_inv,0.03)
+                pocions.append("1")
+                dinero=dinero-2
+                op_tiend_1()           
+            elif dinero<2:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 op_tiend_1()    
         if op_store=="BF" or op_store=="bf":
-            if dinero>=5:
-                text_b_inv=("Las botas flameantes se han agregado a tu inventario\n")
-                text(text_b_inv,0.03)
-                botas.append("Botas flameantes")
-                dinero=dinero-5
-                op_tiend_1()
-            elif int(len(botas))==1:
+            if int(len(botas))==1:
                 text_bot_full=("Ya tienes estas botas en tu inventario, porque no intentas escoger algo más\n")
                 text(text_bot_full,0.03)
-                op_tiend_1()       
-            if dinero<5:
+                op_tiend_1()  
+            elif dinero>=5:
+                text_b_inv=("Las botas flameantes se han agregado a tu inventario\n")
+                text(text_b_inv,0.03)
+                botas.append("1")
+                dinero=dinero-5
+                op_tiend_1()     
+            elif dinero<5:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 op_tiend_1()
@@ -2035,52 +1674,54 @@ def tienda():
         text(text_dinero,0.05)
         op_store=str(input())
         if op_store=="MT" or op_store=="mt":
-                if dinero>=15:
-                    text_esp_inv=("El martillo de trueno se ha agregado a tu inventario\n")
-                    text(text_esp_inv,0.03)
-                    martillos.append("Martillo de trueno")
-                    dinero=dinero-15
-                    op_tien_2()
-                elif int(len(martillos))==1:
-                    text_esp_full=("Ya tienes este martillo en tu inventario, porque no intentas escoger algo más\n")
-                    text(text_esp_full,0.03)
-                    op_tien_2()
-                if dinero<15:
-                    text_falta=("Lo siento no tienes el dinero necesario\n")
-                    text(text_falta,0.03)
-                    op_tien_2()
+            if int(len(martillos))==1:
+                text_esp_full=("Ya tienes este martillo en tu inventario, porque no intentas escoger algo más\n")
+                text(text_esp_full,0.03)
+                op_tien_2()
+            elif dinero>=15:
+                text_esp_inv=("El martillo de trueno se ha agregado a tu inventario\n")
+                text(text_esp_inv,0.03)
+                martillos.append("1")
+                dinero=dinero-15
+                op_tien_2()
+            elif dinero<15:
+                text_falta=("Lo siento no tienes el dinero necesario\n")
+                text(text_falta,0.03)
+                op_tien_2()
                         
         if op_store=="SP" or op_store=="sp":
-                if dinero>=5:
-                    text_p_inv=("Has comprado una super pocion, se ha guardado en tu inventario\n")
-                    text(text_p_inv,0.03)
-                    super_pocions.append("Super Pocion")
-                    dinero=dinero-2
-                    op_tien_2()
-                elif int(len(super_pocions))==3:
-                    text_p_full=("Ya tienes suficiente super pociones no crees?\n")
-                    text(text_p_full,0.03)
-                    op_tien_2()
-                if dinero<5:
-                    text_falta=("Lo siento no tienes el dinero necesario\n")
-                    text(text_falta,0.03)
-                    op_tien_2()
+            if int(len(super_pocions))==3:
+                text_p_full=("Ya tienes suficiente super pociones no crees?\n")
+                text(text_p_full,0.03)
+                op_tien_2()
+
+            elif dinero>=5:
+                text_p_inv=("Has comprado una super pocion, se ha guardado en tu inventario\n")
+                text(text_p_inv,0.03)
+                super_pocions.append("1")
+                dinero=dinero-2
+                op_tien_2()
+        
+            elif dinero<5:
+                text_falta=("Lo siento no tienes el dinero necesario\n")
+                text(text_falta,0.03)
+                op_tien_2()
                   
         if op_store=="BR" or op_store=="br":
-                if dinero>=10:
-                    text_b_inv=("El brazalete de relampago se ha agregado a tu inventario\n")
-                    text(text_b_inv,0.03)
-                    brazaletes.append("Brazalete de relampago")
-                    dinero=dinero-10
-                    op_tien_2()
-                elif int(len(brazaletes))==1:
-                    text_bot_full=("Ya tienes este brazalete en tu inventario, porque no intentas escoger algo más\n")
-                    text(text_bot_full,0.03)
-                    op_tien_2()
-                if dinero<10:
-                    text_falta=("Lo siento no tienes el dinero necesario\n")
-                    text(text_falta,0.03)
-                    op_tien_2()
+            if int(len(brazaletes))==1:
+                text_bot_full=("Ya tienes este brazalete en tu inventario, porque no intentas escoger algo más\n")
+                text(text_bot_full,0.03)
+                op_tien_2()
+            elif dinero>=10:
+                text_b_inv=("El brazalete de relampago se ha agregado a tu inventario\n")
+                text(text_b_inv,0.03)
+                brazaletes.append("1")
+                dinero=dinero-10
+                op_tien_2()
+            elif dinero<10:
+                text_falta=("Lo siento no tienes el dinero necesario\n")
+                text(text_falta,0.03)
+                op_tien_2()
 
         if op_store=="S" or op_store=="s":
             text_salir=("Veamos que más hay\n")
@@ -2099,49 +1740,49 @@ def tienda():
             text(text_dinero,0.05)
             op_store=str(input())
             if op_store=="PE" or op_store=="pe":
-                if dinero>=25:
-                    text_esp_inv=("El peluche se ha agregado a tu inventario\n")
-                    text(text_esp_inv,0.03)
-                    peluches.append("Peluche")
-                    dinero=dinero-20
-                    op_tien_3()
-                elif int(len(peluches))==1:
+                if int(len(peluches))==1:
                     text_esp_full=("Ya tienes este peluche en tu inventario, porque no intentas escoger algo más\n")
                     text(text_esp_full,0.03)
                     op_tien_3()
-                if dinero<20:
+                elif dinero>=25:
+                    text_esp_inv=("El peluche se ha agregado a tu inventario\n")
+                    text(text_esp_inv,0.03)
+                    peluches.append("1")
+                    dinero=dinero-20
+                    op_tien_3()
+                elif dinero<20:
                     text_falta=("Lo siento no tienes el dinero necesario\n")
                     text(text_falta,0.03)
                     op_tien_3()
                     
             if op_store=="SO" or op_store=="so":
-                if dinero>=25:
-                    text_p_inv=("Has comprado un sombrero, se ha guardado en tu inventario, te ves fiu fiu\n")
-                    text(text_p_inv,0.03)
-                    sombreros.append("Sombrero")
-                    dinero=dinero-25
-                    op_tien_3()
-                elif int(len(sombreros))==3:
+                if int(len(sombreros))==3:
                     text_p_full=("Ya tienes suficientes sombreros no crees?\n")
                     text(text_p_full,0.03)
                     op_tien_3()
-                if dinero<25:
+                elif dinero>=25:
+                    text_p_inv=("Has comprado un sombrero, se ha guardado en tu inventario, te ves fiu fiu\n")
+                    text(text_p_inv,0.03)
+                    sombreros.append("1")
+                    dinero=dinero-25
+                    op_tien_3()
+                elif dinero<25:
                     text_falta=("Lo siento no tienes el dinero necesario\n")
                     text(text_falta,0.03)
                     op_tien_3()
                         
             if op_store=="A" or op_store=="a":
-                if dinero>=45:
-                    text_b_inv=("El AK-47 se ha agregado a tu inventario\n")
-                    text(text_b_inv,0.03)
-                    aks.append("AK-47")
-                    dinero=dinero-10
-                    op_tien_3()
-                elif int(len(aks))==1:
+                if int(len(aks))==1:
                     text_bot_full=("Ya tienes este AK-47, porque no intentas escoger algo más\n")
                     text(text_bot_full,0.03)
                     op_tien_3()
-                if dinero<45:
+                elif dinero>=45:
+                    text_b_inv=("El AK-47 se ha agregado a tu inventario\n")
+                    text(text_b_inv,0.03)
+                    aks.append("1")
+                    dinero=dinero-10
+                    op_tien_3()
+                elif dinero<45:
                     text_falta=("Lo siento no tienes el dinero necesario\n")
                     text(text_falta,0.03)
                     op_tien_3()
@@ -2160,49 +1801,49 @@ def tienda():
         text(text_dinero,0.05)
         op_store=str(input())
         if op_store=="C" or op_store=="c":
-            if dinero>=30:
-                text_esp_inv=("La baticangurera se ha agregado a tu inventario,ahora estas bati-vestido\n")
-                text(text_esp_inv,0.03)
-                cangureras.append("Cangurera")
-                dinero=dinero-30
-                op_tien_4()
-            elif int(len(cangureras))==1:
+            if int(len(cangureras))==1:
                 text_esp_full=("Ya tienes este baticinturon en tu inventario, porque no intentas escoger algo más\n")
                 text(text_esp_full,0.03)
                 op_tien_4()
-            if dinero<30:
+            elif dinero>=30:
+                text_esp_inv=("La baticangurera se ha agregado a tu inventario,ahora estas bati-vestido\n")
+                text(text_esp_inv,0.03)
+                cangureras.append("1")
+                dinero=dinero-30
+                op_tien_4()
+            elif dinero<30:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 op_tien_4()
                         
         if op_store=="AF" or op_store=="af":
-            if dinero>=40:
-                text_p_inv=("Has comprado un afro, se ha guardado en tu inventario, ahora estas en la onda\n")
-                text(text_p_inv,0.03)
-                afros.append("Afro")
-                dinero=dinero-40
-                op_tien_4()
-            elif int(len(afros))==1:
+            if int(len(afros))==1:
                 text_p_full=("Ya tienes suficientes afros no crees?\n")
                 text(text_p_full,0.03)
                 op_tien_4()
-            if dinero<40:
+            elif dinero>=40:
+                text_p_inv=("Has comprado un afro, se ha guardado en tu inventario, ahora estas en la onda\n")
+                text(text_p_inv,0.03)
+                afros.append("1")
+                dinero=dinero-40
+                op_tien_4()
+            elif dinero<40:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 op_tien_4()
             
         if op_store=="R" or op_store=="r":
-            if dinero>=50:
-                text_b_inv=("El Rayo de Mcqueen se ha agregado a tu inventario, ahora..eres....veloz\n")
-                text(text_b_inv,0.03)
-                rayos.append("Rayo")
-                dinero=dinero-50
-                op_tien_4()
-            elif int(len(rayos))==1:
+            if int(len(rayos))==1:
                 text_bot_full=("Ya tienes este rayo mcqueenesco, porque no intentas escoger algo más\n")
                 text(text_bot_full,0.03)
                 op_tien_4()
-            if dinero<50:
+            elif dinero>=50:
+                text_b_inv=("El Rayo de Mcqueen se ha agregado a tu inventario, ahora..eres....veloz\n")
+                text(text_b_inv,0.03)
+                rayos.append("1")
+                dinero=dinero-50
+                op_tien_4()
+            elif dinero<50:
                 text_falta=("Lo siento no tienes el dinero necesario\n")
                 text(text_falta,0.03)
                 op_tien_4()
@@ -2260,7 +1901,7 @@ def tienda():
                 text(text_salir,0.03)
                 menu()
             else:
-                text_no=("Lo siento pero ese departamento no me suena")
+                text_no=("Lo siento pero ese departamento no me suena\n")
                 text(text_no,0.03)
                 tienda()
 #------------NIVEL 3
@@ -2300,16 +1941,16 @@ def tienda():
                     text(text_salir,0.03)
                     menu()
                 else:
-                    text_no=("Lo siento pero ese departamento no me suena")
+                    text_no=("Lo siento pero ese departamento no me suena\n")
                     text(text_no,0.03)
                     tienda()
 #------------NIVEL 4
     if nivel==4:
             if dinero<=0:
-                text_nada=("Vaya parece ser que no tienes nada de dinero, mejor sal a explorar")
+                text_nada=("Vaya parece ser que no tienes nada de dinero, mejor sal a explorar\n")
                 text(text_nada,0.03)         
             else:
-                num_tienda=("Cuál tienda quieres escoger")
+                num_tienda=("Cuál tienda quieres escoger\n")
                 text(num_tienda,0.03)
                 t_1=("1 - Tienda Nivel 1")
                 text(t_1,0.03)
@@ -2347,7 +1988,7 @@ def tienda():
                     text(text_salir,0.03)
                     menu()
                 else:
-                    text_no=("Lo siento pero ese departamento no me suena")
+                    text_no=("Lo siento pero ese departamento no me suena\n")
                     text(text_no,0.03)
                     tienda() 
 menu() 
