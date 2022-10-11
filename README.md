@@ -45,8 +45,7 @@ El algoritmo sería primero preguntarle al usuario que quiere hacer ,y luego en 
        - Si hay un objeto: Se le dice al usuario obtuvo un objeto
        - Si hay una tienda: Se le dice al usuario que puede comprar
      - Si el usuario cambia vestimenta: Se le aumentan las estadisticas según su vestuario
-     - Si el usuario quiere guardar: Se guardan sus variables y se termina el juego hasta que lo vuelva a usar
-  
+    
   2.El usuario muere: Se le regresa a la vida desde el último punto guardado
 
 
