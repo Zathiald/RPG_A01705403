@@ -5,11 +5,11 @@ El programa le da al usuario multiples opciones de movimiento,
 combate e inventario, para que sienta que esta en una aventura. 
 """
 
-"""Importar la libreria de tiempo para usar la función de sleep"""
+"""Importar la libreria de time para usar la función de sleep, la cual nos permitira dar espacio entre cada letra que aparece en el texto"""
 
-"""Importar la librería de sys, donde usaremos la función de flush"""
+"""Importar la librería de sys, donde usaremos la función de flush, la cual nos permitira poder mostrar el texto fluidamente"""
 
-"""Importamos la función para poder generar un número random
+"""Importamos la función para poder generar un número random, el cual nos permitira obtener numero aleatoriamente
 Metodo para generar un numero random obtenido de https://j2logo.com/python/generar-numeros-aleatorios-en-python/"""
 
 # --------------------------------------------FUNCIÓN PARA TEXTO--------------------------------------------------------------------------------------------------
