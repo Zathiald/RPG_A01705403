@@ -1,26 +1,30 @@
-"""
-Proyecto RPG
-Role Playing Game(RPG)
-El programa le da al usuario multiples opciones de movimiento,
-combate e inventario, para que sienta que esta en una aventura. 
-"""
-
-"""Importar la libreria de time para usar la función de sleep, la cual nos permitira dar espacio entre cada letra que aparece en el texto"""
-
-"""Importar la librería de sys, donde usaremos la función de flush, la cual nos permitira poder mostrar el texto fluidamente"""
-
-"""Importamos la función para poder generar un número random, el cual nos permitira obtener numero aleatoriamente
-Metodo para generar un numero random obtenido de https://j2logo.com/python/generar-numeros-aleatorios-en-python/"""
-
-# --------------------------------------------FUNCIÓN PARA TEXTO--------------------------------------------------------------------------------------------------
-"""Metodo para hacer aparecer el texto lentamente obtenido de https://es.stackoverflow.com/questions/25901/como-imprimir-una-cadena-de-texto-con-pausas-entre-cada-letra-impresa-en-python"""
-
-
-
 
 from time import sleep
 import sys
 import random
+"""
+Proyecto RPG
+Role Playing Game(RPG)
+El programa le da al usuario multiples opciones de movimiento,
+combate e inventario,para que sienta que esta en una aventura.
+"""
+
+"""Importar la libreria de time para usar la función de sleep, la cual nos
+permitira dar espacio entre cada letra que aparece en el texto"""
+
+"""Importar la librería de sys, donde usaremos la función de flush, la cual
+nos permitira poder mostrar el texto fluidamente"""
+
+"""Importamos la función para poder generar un número random, el cual nos
+permitira obtener numero aleatoriamente.Metodo para generar un numero random
+obtenido de https://j2logo.com/python/generar-numeros-aleatorios-en-python/"""
+
+"""-----FUNCIÓN PARA TEXTO"""
+"""Metodo para hacer aparecer el texto lentamente obtenido de
+https://es.stackoverflow.com/questions/25901/como-imprimir-una-cadena-de-
+texto-con-pausas-entre-cada-letra-impresa-en-python"""
+
+
 def text(texto, speed):
     """
     (uso de biblioteca, uso de funciones)
@@ -34,7 +38,9 @@ def text(texto, speed):
         sleep(speed)
 
 
-"""Valores para colores obtenidos de https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal"""
+"""Valores para colores obtenidos de
+https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-
+terminal"""
 
 
 class color:
@@ -44,7 +50,7 @@ class color:
     END = '\033[0m'
 
 
-"""------------------------------------------GUARDAR Y CREAR VARIABLES-----------------------------------------------------------------------------------------------------------------------------------"""
+"""-----GUARDAR Y CREAR VARIABLES"""
 
 """Inventario"""
 anillos = []
@@ -84,12 +90,12 @@ co_x = 0.0
 co_y = 0.0
 
 """Stats enemigos"""
-name_enem = str
-fuerza_enem = float
-velocidad_enem = float
-vida_enem = float
-exp_enem = float
-dinero_enem = float
+name_en = str
+fuerza_en = float
+velocidad_en = float
+vida_en = float
+exp_en = float
+dinero_en = float
 
 
 def stats():
@@ -120,7 +126,8 @@ def stats():
     dinero_text = ("Dinero: ", dinero, '\n')
     text(dinero_text, 0.5)
 
-    coord_text = ("Coordenadas: ", co_x, ",", co_y, '\n')
+    coord_text = ("Coordenadas: ", co_x, ",", co_y, 'n')
+    coord_text = ("Coordenadas: ", co_x, ",", co_y, 'n')
     text(coord_text, 0.5)
 
 
@@ -132,7 +139,8 @@ def tut():
     Se guarda en función para hacer el tutorial opcional
     """
     text_intro = (
-        "Bienvenido al Mundo de Palgia, un lugar lleno de misterios y peligros, aventuras y amenazas\n")
+        "Bienvenido al Mundo de Palgia, un lugar lleno de misterios y\
+        peligros, aventuras y amenazas\n")
     text(text_intro, 0.03)
 
     text9 = ("Estos son tus stats iniciales\n")
@@ -141,14 +149,17 @@ def tut():
     stats()
 
     text10 = (
-        "Si en algún momento quieres ver tus stats presiona S al inicio de cada turno\n")
+        "Si en algún momento quieres ver tus stats presiona S al inicio de\
+        cada turno\n")
     text(text10, 0.03)
 
     text11 = (
-        "Para moverte presiona las teclas W,A,S,D y te moveras en esa dirección\n")
+        "Para moverte presiona las teclas W,A,S,D y te moveras en esa\
+        dirección\n")
     text(text11, 0.03)
 
-    text12 = ("Según tu velocidad es cuantos cuadros podras moverte por turno y también cuanta chance tienes para atacar a tu enemigo\n")
+    text12 = ("Según tu velocidad es cuantos cuadros podras moverte por turno\
+    y también cuanta chance tienes para atacar a tu enemigo\n")
     text(text12, 0.03)
 
     text13 = ("Mientras más velocidad más chance de atacar\n")
@@ -157,24 +168,28 @@ def tut():
     text14 = ("Para escoger moverte al inicio de cada turno presiona M\n")
     text(text14, 0.03)
 
-    text15 = ("Al escoger la opción de moverte, hay una posibilidad de que aparezca un enemigo, pueblo u objeto en tu camino\n")
+    text15 = ("Al escoger la opción de moverte, hay una posibilidad de que\
+    aparezca un enemigo, pueblo u objeto en tu camino\n")
     text(text15, 0.03)
 
-    text16 = ("Por toda Palgia hay varios objetos místicos, usalos con sabiduría para obtener ventaja en combate\n")
+    text16 = ("Por toda Palgia hay varios objetos místicos, usalos con\
+    sabiduría para obtener ventaja en combate\n")
     text(text16, 0.03)
 
     text17 = (
-        "Pero cuidado, que algunos objetos estan embrujados y te podrían bajar los stats\n")
+        "Pero cuidado, que algunos objetos estan embrujados\
+        y te podrían bajar los stats\n")
     text(text17, 0.03)
 
-    text18 = ("Para ver y escoger un objeto al inicio de cada turno presiona I\n")
+    text18 = ("Para ver y escoger un objeto al inicio de cada\
+    turno presiona I\n")
     text(text18, 0.03)
 
     text19 = ("Ahora que estas familiarizado con las acciones básicas\n")
     text(text19, 0.03)
 
 
-# --------------------------------------------INGRESO JUGADOR--------------------------------------------------------------------------------------------------
+"""-----INGRESO JUGADOR"""
 text1 = ("Como te llamas héroe o heroína: ")
 text(text1, 0.03)
 
@@ -220,10 +235,10 @@ elif op_tu == "n" or op_tu == "N":
     text6 = ("Ah un aventurero,¡HORA DE AVENTURA!(TM)\n")
     text(text6, 0.05)
     text_intro = (
-        "Bienvenido al Mundo de Palgia, un lugar lleno de misterios y peligros, aventuras y amenazas\n")
+        "Bienvenido al Mundo de Palgia, un lugar lleno de misterios\
+        y peligros, aventuras y amenazas\n")
     text(text_intro, 0.03)
-
-# ---------------------------------------FUNCIONES PRINCIPALES-----------------------------------------------------------------------------------------------------
+"""-----FUNCIONES PRINCIPALES"""
 """
     (uso de variables, uso de funciones,uso de texto)
     recibe: valor de nombre,vida,velocidad,fuerza,nivel,exp,dinero del enemigo
@@ -254,7 +269,8 @@ def slagbrood():
 
 def shadowling():
     text_shadowling = (
-        "Una bestia oscura se ha levantado desde las sombras, y viene por ti\n")
+        "Una bestia oscura se ha levantado desde\
+        las sombras, y viene por ti\n")
     text(text_shadowling, 0.03)
     enem("Shadowling", 15, 17, 20, 10, 15)
 
@@ -291,7 +307,8 @@ def sorrowvine():
 
 def uraelth():
     text_uraelth = (
-        "Parece ser que te has topado con un dragón, y este tiene hambre de aventurer@\n")
+        "Parece ser que te has topado con un dragón, y este\
+        tiene hambre de aventurer@\n")
     text(text_uraelth, 0.03)
     enem("Uraelth", 5.5, 7, 10, 5, 5)
 
@@ -313,7 +330,8 @@ def subir_nivel():
     (uso de variables, uso de funciones, uso de condiciones)
     recibe: valor de vida,velocidad,fuerza,nivel,exp
     segun el nivel y experiencia se sube el nivel
-    segun el nivel que se sube, se sube tambien la vida,nivel,velocidad y fuerza
+    segun el nivel que se sube, se sube tambien la vida,nivel,
+    velocidad y fuerza
     devuelve: funcion de enemigo con variables diferentes
     """
     global vida
@@ -327,7 +345,9 @@ def subir_nivel():
         velocidad = velocidad + 7
         fuerza = fuerza + 5
         text_subir = (
-            color.BOLD, "¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos\n", color.BOLD, color.END)
+            color.BOLD, "¡Has subido de nivel! ¡FELICIDADES!,\
+            pero cuidado, ahora habra enemigos\
+            más poderosos\n", color.BOLD, color.END)
         text(text_subir, 0.05)
     if nivel == 2 and exp >= 25:
         nivel = nivel + 1
@@ -335,7 +355,9 @@ def subir_nivel():
         velocidad = velocidad + 10
         fuerza = fuerza + 10
         text_subir = (
-            color.BOLD, "¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos\n", color.BOLD, color.END)
+            color.BOLD, "¡Has subido de nivel! ¡FELICIDADES!,\
+            pero cuidado, ahora habra enemigos\
+            más poderosos\n", color.BOLD, color.END)
         text(text_subir, 0.05)
     if nivel == 3 and exp >= 50:
         nivel = nivel + 1
@@ -343,17 +365,22 @@ def subir_nivel():
         velocidad = velocidad + 15
         fuerza = fuerza + 15
         text_subir = (
-            color.BOLD, "¡Has subido de nivel! ¡FELICIDADES!, pero cuidado, ahora habra enemigos más poderosos\n", color.BOLD, color.END)
+            color.BOLD, "¡Has subido de nivel! ¡FELICIDADES!,\
+            pero cuidado, ahora habra enemigos\
+            más poderosos\n", color.BOLD, color.END)
         text(text_subir, 0.05)
 
 
-def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_enem):
+def enem(name_en, fuerza_en, velocidad_en, vida_en, exp_en, dinero_en):
     """
-    (uso de variables, uso de funciones,uso de ciclos,uso de condicionesmuso de input)
-    recibe: valor de nombre,vida,velocidad,fuerza,nivel,exp,dinero del enemigo y del usuario
+    (uso de variables, uso de funciones,uso de ciclos,
+    uso de condiciones,uso de input)
+    recibe: valor de nombre,vida,velocidad,fuerza,nivel,exp,dinero
+    del enemigo y del usuario
     imprime cada uno de los stats del enemigo
-    le pide al usuario escoger entre atacar y ver el inventario 
-    actualiza los stats del enemigo y del usuario dependiendo de las acciones tomadas
+    le pide al usuario escoger entre atacar y ver el inventario
+    actualiza los stats del enemigo y del usuario
+    dependiendo de las acciones tomadas
     devuelve: nuevos stats del usuario
     """
     global vida
@@ -365,19 +392,19 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
     text_enem = ("Los stats de este enemigo son: \n")
     text(text_enem, 0.05)
 
-    nom_enem_t = ("Nombre: ", name_enem, '\n')
+    nom_enem_t = ("Nombre: ", name_en, '\n')
     text(nom_enem_t, 0.5)
 
-    velocidad_enem_t = ("Velocidad: ", velocidad_enem, '\n')
+    velocidad_enem_t = ("Velocidad: ", velocidad_en, '\n')
     text(velocidad_enem_t, 0.5)
 
-    fuerza_enem_t = ("Fuerza: ", fuerza_enem, '\n')
+    fuerza_enem_t = ("Fuerza: ", fuerza_en, '\n')
     text(fuerza_enem_t, 0.5)
 
-    vida_enem_t = ("Vida: ", vida_enem, '\n')
+    vida_enem_t = ("Vida: ", vida_en, '\n')
     text(vida_enem_t, 0.5)
 
-    while vida_enem > 0:
+    while vida_en > 0:
         text_atac = ("Presiona X para atacar \n")
         text(text_atac, 0.05)
         text_atac = ("Presiona I para abrir inventario \n")
@@ -391,10 +418,10 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
             text(text_atac, 0.05)
             atac = str(input())
         if atac == "X" or atac == "x":
-            if velocidad < velocidad_enem:
+            if velocidad < velocidad_en:
                 atak = random.randint(0, 1)
                 if atak == 0:
-                    enem_ataque(fuerza_enem)
+                    enem_ataque(fuerza_en)
                     text_atac = ("Presiona X para atacar \n")
                     text(text_atac, 0.05)
                     text_atac = ("Presiona I para abrir inventario \n")
@@ -402,18 +429,19 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
                     atac = str(input())
 
                 if atak == 1:
-                    vida_enem = vida_enem - fuerza
+                    vida_en = vida_en - fuerza
                     text_atacar = ("¡Has atacado al enemigo!\n")
                     text(text_atacar, 0.05)
-                    text_vida_e = ("Su vida ahora es ", vida_enem, '\n')
+                    text_vida_e = ("Su vida ahora es ", vida_en, '\n')
                     text(text_vida_e, 0.05)
 
-                    if vida_enem == 0 or vida_enem < 0:
+                    if vida_en == 0 or vida_en < 0:
                         text_win = (
-                            color.BOLD, color.BLUE, "¡LO LOGRASTE!\n", color.BOLD, color.BLUE, color.END)
+                            color.BOLD, color.BLUE, "¡LO LOGRASTE!\n",
+                            color.BOLD, color.BLUE, color.END)
                         text(text_win, 0.05)
-                        exp = exp + exp_enem
-                        dinero = dinero + dinero_enem
+                        exp = exp + exp_en
+                        dinero = dinero + dinero_en
 
                         stats()
                         if nivel == 1 and exp >= 7:
@@ -423,11 +451,11 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
                         elif nivel == 3 and exp >= 50:
                             subir_nivel()
 
-            elif velocidad > velocidad_enem or velocidad == velocidad_enem:
+            elif velocidad > velocidad_en or velocidad == velocidad_en:
                 atak = random.randint(0, 3)
 
                 if atak == 0:
-                    enem_ataque(fuerza_enem)
+                    enem_ataque(fuerza_en)
                     text_atac = ("Presiona X para atacar \n")
                     text(text_atac, 0.05)
                     text_atac = ("Presiona I para abrir inventario \n")
@@ -435,20 +463,21 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
                     atac = str(input())
 
                 if atak == 1 or 2 or 3:
-                    vida_enem = vida_enem - fuerza
+                    vida_en = vida_en - fuerza
 
                     text_atacar = ("¡Has atacado al enemigo!\n")
                     text(text_atacar, 0.05)
 
-                    text_vida_e = ("Su vida ahora es ", vida_enem, '\n')
+                    text_vida_e = ("Su vida ahora es ", vida_en, '\n')
                     text(text_vida_e, 0.05)
 
-                    if vida_enem == 0 or vida_enem < 0:
+                    if vida_en == 0 or vida_en < 0:
                         text_win = (
-                            color.BOLD, color.BLUE, "¡LO LOGRASTE!\n", color.BOLD, color.BLUE, color.END)
+                            color.BOLD, color.BLUE, "¡LO LOGRASTE!\n",
+                            color.BOLD, color.BLUE, color.END)
                         text(text_win, 0.05)
-                        exp = exp + exp_enem
-                        dinero = dinero + dinero_enem
+                        exp = exp + exp_en
+                        dinero = dinero + dinero_en
                         stats()
                         if nivel == 1 and exp >= 7:
                             subir_nivel()
@@ -458,7 +487,7 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
                             subir_nivel(nivel, vida, velocidad, fuerza)
 
         else:
-            vida = vida - fuerza_enem
+            vida = vida - fuerza_en
             text_atacado = (color.BOLD, "¡NO ATACASTE!", color.BOLD,
                             color.END, "Ahora el enemigo te ha atacado\n")
             text(text_atacado, 0.05)
@@ -473,18 +502,19 @@ def enem(name_enem, fuerza_enem, velocidad_enem, vida_enem, exp_enem, dinero_ene
                 exit()
 
 
-def enem_ataque(fuerza_enem):
+def enem_ataque(fuerza_en):
     """
     (uso de variables, uso de funciones,uso de condicionales)
     recibe: valor de fuerza del enemigo y vida del usuario
     le quita a la vida del usuario el valor de la fuerza del enemigo
     analiza cuanta vida le queda al usuario
-    devuelve: 
+    devuelve:
     si al usuario le queda vida, regresa a la función de atacar al enemigo
-    si al usuario se le acaba la vida, se le muestra un mensaje de game over y se acaba el código
+    si al usuario se le acaba la vida, se le muestra
+    un mensaje de game over y se acaba el código
     """
     global vida
-    vida = vida - fuerza_enem
+    vida = vida - fuerza_en
     text_atacado = ("¡FALLASTE!. Ahora el enemigo te ha atacado\n")
     text(text_atacado, 0.05)
 
@@ -597,7 +627,8 @@ def menu():
     recibe: input del usuario
     le muestra al usuario sus opciones
     el usuario ingresa que quiere hacer
-    *si la opcion no esta disponible se le pide al usuario ingresar una opcion de nuevo
+    *si la opcion no esta disponible se le pide
+    al usuario ingresar una opcion de nuevo
     devuelve: funcion dependiendo de accion del usuario
     """
     text_menu = ("Que quieres hacer:\n")
@@ -614,7 +645,8 @@ def menu():
 
     opc = str(input())
 
-    while opc != "S" and opc != "s" and opc != "M" and opc != "m" and opc != "I" and opc != "i":
+    while opc != "S" and opc != "s" and opc != "M" and\
+            opc != "m" and opc != "I" and opc != "i":
         text20 = ("Por favor escoge una de las opciones disponibles\n")
         text(text20, 0.05)
         opc = str(input())
@@ -632,7 +664,8 @@ def menu():
 
 def mover():
     """
-    (uso de variables, uso de funciones,uso de input, uso de ciclos,uso de condicionales)
+    (uso de variables,uso de funciones,uso de input,
+    uso de ciclos,uso de condicionales)
     recibe: valor de dinero del usuario
     se le muestra al usuario a donde se puede mover y se le pide un input
     se muestra un texto de a donde se movio
@@ -663,7 +696,8 @@ def mover():
     recibe: valor de velocidad y coordenadas del usuario,input de dirección
     se analiza el input que puso el usuario
     se muestra un texto de a donde se movio,con velocidad y coordenadas
-    *si el usuario escogio un input erroneo se le muestra un mensaje de escoger bien y se reinicia la función
+    *si el usuario escogio un input erroneo se le muestra
+    un mensaje de escoger bien y se reinicia la función
     devuelve: texto de movimiento del
     """
         global co_y
@@ -697,7 +731,8 @@ def mover():
             text_coord = ("Coordenadas: ", co_x, ",", co_y, '\n')
             text(text_coord, 0.03)
 
-        while dir != "W" and dir != "w" and dir != "A" and dir != "a" and dir != "S" and dir != "s" and dir != "D" and dir != "d":
+        while dir != "W" and dir != "w" and dir != "A" and dir != "a" and\
+                dir != "S" and dir != "s" and dir != "D" and dir != "d":
             text_mov_cor = ("Esa no es una direccion, escoge bien\n")
             text(text_mov_cor, 0.03)
             mover()
@@ -707,7 +742,8 @@ def mover():
 
     if turno == 0:
         text_nada = (
-            "Vaya parece que no hay nada por aquí, oh pero si encontraste una moneda\n")
+            "Vaya parece que no hay nada por aquí, oh pero si\
+            encontraste una moneda\n")
         text(text_nada, 0.03)
         dinero = dinero + 1.0
 
@@ -741,16 +777,20 @@ def mover():
             if dar == "D" or dar == "d":
                 peluches.remove("1")
                 text_feliz = (
-                    "Oh la niña se ve super alegre y parece ser te ha dado, un un lanzagranadas?, eehhh mejor no cuestiones, quien sabe por donde ha estado esa niña\n")
+                    "Oh la niña se ve super alegre y parece ser te ha dado,\
+                    un un lanzagranadas?, eehhh mejor no cuestiones,\
+                    quien sabe por donde ha estado esa niña\n")
                 text(text_feliz, 0.03)
                 granadas.append('1')
             if dar == "N" or dar == "n":
                 text_triste = (
-                    "Mira nomás lo que hiciste, ahora la niña esta triste y llorando, te sientes feliz contigo?\n")
+                    "Mira nomás lo que hiciste, ahora la niña esta triste\
+                    y llorando, te sientes feliz contigo?\n")
                 text(text_triste)
         else:
             text_nada = (
-                "Mmm,no parece ser que tengas nada para darle, mejor regresar a explorar\n")
+                "Mmm,no parece ser que tengas nada para darle,\
+                mejor regresar a explorar\n")
             text(text_nada, 0.03)
 
 
@@ -763,7 +803,8 @@ def inv():
     se actualizan los datos según el objeto que selecciono el usuario
     devuelve: inventario y stats actualizadas del usuario
     """
-    """Metodo para remover objeto de una lista obtenido de https://uniwebsidad.com/libros/python/capitulo-7/metodos-de-eliminacion"""
+    """Metodo para remover objeto de una lista obtenido de
+    https://uniwebsidad.com/libros/python/capitulo-7/metodos-de-eliminacion"""
 
     text_inv = ("Escoge que quieres usar de tu inventario\n")
     text(text_inv, 0.03)
@@ -898,7 +939,21 @@ def inv():
         text_s = ("S-Salir\n")
         text(text_s, 0.03)
 
-    if int(len(anillos)) == 0 and int(len(medallons)) == 0 and int(len(cascos)) == 0 and int(len(manzanas)) == 0 and int(len(espadas)) == 0 and int(len(pocions)) == 0 and int(len(botas)) == 0 and int(len(martillos)) == 0 and int(len(super_pocions)) == 0 and int(len(brazaletes)) == 0 and int(len(peluches)) == 0 and int(len(sombreros)) == 0 and int(len(aks)) == 0 and int(len(granadas)) == 0 and int(len(cangureras)) == 0 and int(len(afros)) == 0 and int(len(rayos)) == 0:
+    if int(len(anillos)) == 0 and int(len(medallons)) == 0 and\
+            int(len(cascos)) == 0 and int(len(manzanas)) == 0 and\
+            int(len(espadas)) == 0\
+            and int(len(pocions)) == 0\
+            and int(len(botas)) == 0\
+            and int(len(martillos)) == 0\
+            and int(len(super_pocions)) == 0\
+            and int(len(brazaletes)) == 0\
+            and int(len(peluches)) == 0\
+            and int(len(sombreros)) == 0\
+            and int(len(aks)) == 0\
+            and int(len(granadas)) == 0\
+            and int(len(cangureras)) == 0\
+            and int(len(afros)) == 0\
+            and int(len(rayos)) == 0:
         text_nada_in = (
             "Oh vaya, parece que no tienes nada en tu inventario\n")
         text(text_nada_in, 0.03)
@@ -1021,7 +1076,8 @@ def inv():
                 obj_inv = str(input())
             else:
                 text_cinv = (
-                    "Has usado el casco, has obtenido 3.5 de fuerza, pero has perdido 4 de velocidad\n")
+                    "Has usado el casco, has obtenido 3.5 de fuerza,\
+                    pero has perdido 4 de velocidad\n")
                 text(text_cinv, 0.03)
                 fuerza = fuerza + 3.5
                 velocidad = velocidad - 4
@@ -1214,10 +1270,12 @@ def inv():
                 texto_inve()
                 obj_inv = str(input())
 
-        if int(len(super_pocions)) > 0 and (obj_inv == "SP" or obj_inv == "sp"):
+        if int(len(super_pocions)) > 0 and\
+                (obj_inv == "SP" or obj_inv == "sp"):
             if int(len(super_pocions)) <= 0:
                 text_n_sp = (
-                    "Ya no tienes super pociones disponibles,escoge algo más\n")
+                    "Ya no tienes super pociones\
+                    disponibles,escoge algo más\n")
                 text(text_n_sp, 0.03)
                 texto_inve()
                 obj_inv = str(input())
@@ -1483,7 +1541,8 @@ def inv():
 
         else:
             text_bien = (
-                "Disculpa pero no tienes eso en tu inventario, escoge algo más\n")
+                "Disculpa pero no tienes eso en tu\
+                inventario, escoge algo más\n")
             text(text_bien, 0.03)
             texto_inve()
             obj_inv = str(input())
@@ -1507,13 +1566,15 @@ def obj():
 
     if obj == 1:
         text_medallonvida = (
-            "¡HAS ENCONTRADO UN MEDALLON DE VELOCIDAD!, usalo con sabiduría\n")
+            "¡HAS ENCONTRADO UN MEDALLON DE VELOCIDAD!,\
+            usalo con sabiduría\n")
         text(text_medallonvida, 0.03)
         medallons.append('1')
 
     if obj == 2:
         text_cascoencantado = (
-            "Has encontrado un casco encantado, te dice que ofrece poder, pero cuidado, que tiene magia oscura\n")
+            "Has encontrado un casco encantado, te dice que ofrece poder,\
+            pero cuidado, que tiene magia oscura\n")
         text(text_cascoencantado, 0.03)
         cascos.append('1')
 
@@ -1525,7 +1586,8 @@ def obj():
 
 def tienda():
     """
-    (uso de variables, uso de funciones,uso de input, uso de ciclos,uso de condicionales)
+    (uso de variables, uso de funciones,uso de input,
+    uso de ciclos,uso de condicionales)
     recibe: valor de dinero y listas de objeto del usuario
     se le muestra al usuario lo que tiene disponible en la tienda
     *si su nivel es mayor a 1, se le  pide al usuario seleccionar una tienda
@@ -1551,7 +1613,8 @@ def tienda():
     """
     (uso de funciones,uso de texto,uso de variables)
     recibe: valor de dinero
-    se le muestra al usuario texto en donde sale que hay disponible en la tienda
+    se le muestra al usuario texto en donde sale
+    que hay disponible en la tienda
     devuelve: texto de la tienda
     se repite la función para cada tienda, solo con objetos distintos
     """
@@ -1590,9 +1653,11 @@ def tienda():
         text(text_botas, 0.03)
 
     """
-    (uso de variables, uso de funciones,uso de input, uso de ciclos,uso de condicionales)
+    (uso de variables, uso de funciones,uso de input,
+    uso de ciclos,uso de condicionales)
     recibe: valor de dinero del usuario
-    se le muestra al usuario el dinero que tiene y se le pide seleccionar que quiere comprar
+    se le muestra al usuario el dinero que tiene y
+    se le pide seleccionar que quiere comprar
     se actualiza el dinero y lista de objeto según que compro el usuario
     devuelve: dinero e inventario actualizado
     se crean multiples funciones iguales para cada tienda de cada nivel
@@ -1605,7 +1670,8 @@ def tienda():
         if op_store == "EF" or op_store == "ef":
             if int(len(espadas)) == 1:
                 text_esp_full = (
-                    "Ya tienes esta espada en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes esta espada en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_esp_full, 0.03)
                 tienda()
 
@@ -1630,7 +1696,8 @@ def tienda():
 
             elif dinero >= 2:
                 text_p_inv = (
-                    "Has comprado una pocion, se ha guardado en tu inventario\n")
+                    "Has comprado una pocion, se ha guardado\
+                    en tu inventario\n")
                 text(text_p_inv, 0.03)
                 pocions.append("1")
                 dinero = dinero - 2
@@ -1644,7 +1711,8 @@ def tienda():
         if op_store == "BF" or op_store == "bf":
             if int(len(botas)) == 1:
                 text_bot_full = (
-                    "Ya tienes estas botas en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes estas botas en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_bot_full, 0.03)
                 tienda()
 
@@ -1666,7 +1734,10 @@ def tienda():
             text(text_salir, 0.03)
             menu()
 
-        while op_store != "BF" and op_store == "bf" and op_store != "P" and op_store != "p" and op_store != "EF" and op_store != "ef" and op_store != "S" and op_store != "s":
+        while op_store != "BF" and op_store == "bf" and\
+                op_store != "P" and op_store != "p" and\
+                op_store != "EF" and op_store != "ef" and\
+                op_store != "S" and op_store != "s":
             text_bien = (
                 "Disculpa pero eso no esta disponible, escoge algo más\n")
             text(text_bien, 0.03)
@@ -1680,7 +1751,8 @@ def tienda():
         if op_store == "EF" or op_store == "ef":
             if int(len(espadas)) == 1:
                 text_esp_full = (
-                    "Ya tienes esta espada en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes esta espada en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_esp_full, 0.03)
                 op_tiend_1()
 
@@ -1705,7 +1777,8 @@ def tienda():
 
             elif dinero >= 2:
                 text_p_inv = (
-                    "Has comprado una pocion, se ha guardado en tu inventario\n")
+                    "Has comprado una pocion,\
+                    se ha guardado en tu inventario\n")
                 text(text_p_inv, 0.03)
                 pocions.append("1")
                 dinero = dinero-2
@@ -1719,7 +1792,8 @@ def tienda():
         if op_store == "BF" or op_store == "bf":
             if int(len(botas)) == 1:
                 text_bot_full = (
-                    "Ya tienes estas botas en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes estas botas en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_bot_full, 0.03)
                 op_tiend_1()
 
@@ -1741,7 +1815,10 @@ def tienda():
             text(text_salir, 0.03)
             tienda()
 
-        while op_store != "BF" and op_store == "bf" and op_store != "P" and op_store != "p" and op_store != "EF" and op_store != "ef" and op_store != "S" and op_store != "s":
+        while op_store != "BF" and op_store == "bf" and\
+                op_store != "P" and op_store != "p" and\
+                op_store != "EF" and op_store != "ef" and\
+                op_store != "S" and op_store != "s":
             text_bien = (
                 "Disculpa pero eso no esta disponible, escoge algo más\n")
             text(text_bien, 0.03)
@@ -1755,7 +1832,8 @@ def tienda():
         if op_store == "MT" or op_store == "mt":
             if int(len(martillos)) == 1:
                 text_esp_full = (
-                    "Ya tienes este martillo en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes este martillo en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_esp_full, 0.03)
                 op_tien_2()
 
@@ -1781,7 +1859,8 @@ def tienda():
 
             elif dinero >= 5:
                 text_p_inv = (
-                    "Has comprado una super pocion, se ha guardado en tu inventario\n")
+                    "Has comprado una super pocion,\
+                    se ha guardado en tu inventario\n")
                 text(text_p_inv, 0.03)
                 super_pocions.append("1")
                 dinero = dinero - 5
@@ -1795,13 +1874,15 @@ def tienda():
         if op_store == "BR" or op_store == "br":
             if int(len(brazaletes)) == 1:
                 text_bot_full = (
-                    "Ya tienes este brazalete en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes este brazalete en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_bot_full, 0.03)
                 op_tien_2()
 
             elif dinero >= 10:
                 text_b_inv = (
-                    "El brazalete de relampago se ha agregado a tu inventario\n")
+                    "El brazalete de relampago se\
+                    ha agregado a tu inventario\n")
                 text(text_b_inv, 0.03)
                 brazaletes.append("1")
                 dinero = dinero - 10
@@ -1817,13 +1898,17 @@ def tienda():
             text(text_salir, 0.03)
             tienda()
 
-        while op_store != "S" and op_store == "s" and op_store != "BR" and op_store != "br" and op_store != "SP" and op_store != "sp" and op_store != "MT" and op_store != "mt":
+        while op_store != "S" and op_store == "s" and\
+                op_store != "BR" and op_store != "br" and\
+                op_store != "SP" and op_store != "sp" and\
+                op_store != "MT" and op_store != "mt":
             text_bien = (
                 "Disculpa pero eso no esta disponible, escoge algo más\n")
             text(text_bien, 0.03)
             op_tien_2()
 
     def op_tien_3():
+        global dinero
         while dinero > 0:
             text_dinero = ("Dinero: ", dinero, '\n')
             text(text_dinero, 0.05)
@@ -1831,7 +1916,8 @@ def tienda():
             if op_store == "PE" or op_store == "pe":
                 if int(len(peluches)) == 1:
                     text_esp_full = (
-                        "Ya tienes este peluche en tu inventario, porque no intentas escoger algo más\n")
+                        "Ya tienes este peluche en tu inventario,\
+                        porque no intentas escoger algo más\n")
                     text(text_esp_full, 0.03)
                     op_tien_3()
                 elif dinero >= 25:
@@ -1855,7 +1941,8 @@ def tienda():
 
                 elif dinero >= 25:
                     text_p_inv = (
-                        "Has comprado un sombrero, se ha guardado en tu inventario, te ves fiu fiu\n")
+                        "Has comprado un sombrero, se ha guardado\
+                        en tu inventario, te ves fiu fiu\n")
                     text(text_p_inv, 0.03)
                     sombreros.append("1")
                     dinero = dinero - 25
@@ -1869,7 +1956,8 @@ def tienda():
             if op_store == "A" or op_store == "a":
                 if int(len(aks)) == 1:
                     text_bot_full = (
-                        "Ya tienes este AK-47, porque no intentas escoger algo más\n")
+                        "Ya tienes este AK-47,\
+                        porque no intentas escoger algo más\n")
                     text(text_bot_full, 0.03)
                     op_tien_3()
 
@@ -1890,26 +1978,35 @@ def tienda():
                 text(text_salir, 0.03)
                 tienda()
 
-            while op_store != "PE" and op_store == "pe" and op_store != "SO" and op_store != "so" and op_store != "A" and op_store != "a" and op_store != "S" and op_store != "s":
-                text_bien = (
-                    "Disculpa pero eso no esta disponible, escoge algo más\n")
+            while op_store != "PE" and op_store == "pe" and\
+                    op_store != "SO" and\
+                    op_store != "so" and\
+                    op_store != "A" and\
+                    op_store != "a" and\
+                    op_store != "S" and\
+                    op_store != "s":
+                text_bien = ("Disculpa pero eso no esta\
+                disponible, escoge algo más\n")
                 text(text_bien, 0.03)
                 op_tien_3()
 
     def op_tien_4():
+        global dinero
         text_dinero = ("Dinero: ", dinero, '\n')
         text(text_dinero, 0.05)
         op_store = str(input())
         if op_store == "C" or op_store == "c":
             if int(len(cangureras)) == 1:
                 text_esp_full = (
-                    "Ya tienes este baticinturon en tu inventario, porque no intentas escoger algo más\n")
+                    "Ya tienes este baticinturon en tu inventario,\
+                    porque no intentas escoger algo más\n")
                 text(text_esp_full, 0.03)
                 op_tien_4()
 
             elif dinero >= 30:
                 text_esp_inv = (
-                    "La baticangurera se ha agregado a tu inventario,ahora estas bati-vestido\n")
+                    "La baticangurera se ha agregado a\
+                    tu inventario,ahora estas bati-vestido\n")
                 text(text_esp_inv, 0.03)
                 cangureras.append("1")
                 dinero = dinero - 30
@@ -1928,7 +2025,8 @@ def tienda():
 
             elif dinero >= 40:
                 text_p_inv = (
-                    "Has comprado un afro, se ha guardado en tu inventario, ahora estas en la onda\n")
+                    "Has comprado un afro, se ha guardado\
+                    en tu inventario, ahora estas en la onda\n")
                 text(text_p_inv, 0.03)
                 afros.append("1")
                 dinero = dinero - 40
@@ -1942,13 +2040,15 @@ def tienda():
         if op_store == "R" or op_store == "r":
             if int(len(rayos)) == 1:
                 text_bot_full = (
-                    "Ya tienes este rayo mcqueenesco, porque no intentas escoger algo más\n")
+                    "Ya tienes este rayo mcqueenesco, porque no intentas escog\
+                    er algo más\n")
                 text(text_bot_full, 0.03)
                 op_tien_4()
 
             elif dinero >= 50:
                 text_b_inv = (
-                    "El Rayo de Mcqueen se ha agregado a tu inventario, ahora..eres....veloz\n")
+                    "El Rayo de Mcqueen se ha agregado a tu inventario, ahora.\
+                    .eres....veloz\n")
                 text(text_b_inv, 0.03)
                 rayos.append("1")
                 dinero = dinero - 50
@@ -1964,7 +2064,10 @@ def tienda():
             text(text_salir, 0.03)
             tienda()
 
-        while op_store != "C" and op_store == "c" and op_store != "Af" and op_store != "af" and op_store != "R" and op_store != "r" and op_store != "S" and op_store != "s":
+        while op_store != "C" and op_store == "c" and op_store != "Af" and\
+                op_store != "af" and op_store != "R" and\
+                op_store != "r" and\
+                op_store != "S" and op_store != "s":
             text_bien = (
                 "Disculpa pero eso no esta disponible, escoge algo más\n")
             text(text_bien, 0.03)
@@ -1977,7 +2080,8 @@ def tienda():
         text(text_s, 0.03)
         while dinero <= 0:
             text_nada = (
-                "Vaya parece ser que no tienes nada de dinero, mejor sal a explorar\n")
+                "Vaya parece ser que no tienes nada de dinero, mejor sal a exp\
+                lorar\n")
             text(text_nada, 0.03)
             menu()
         else:
@@ -1987,7 +2091,8 @@ def tienda():
     if nivel == 2:
         while dinero <= 0:
             text_nada = (
-                "Vaya parece ser que no tienes nada de dinero, mejor sal a explorar\n")
+                "Vaya parece ser que no tienes nada de dinero, mejor sal a exp\
+                lorar\n")
             text(text_nada, 0.03)
             menu()
         else:
@@ -2022,7 +2127,8 @@ def tienda():
     if nivel == 3:
         if dinero <= 0:
             text_nada = (
-                "Vaya parece ser que no tienes nada de dinero, mejor sal a explorar\n")
+                "Vaya parece ser que no tienes nada de dinero, mejor sal a exp\
+                lorar\n")
             text(text_nada, 0.03)
         else:
             num_tienda = ("Cuál tienda quieres escoger\n")
@@ -2063,7 +2169,8 @@ def tienda():
     if nivel == 4:
         if dinero <= 0:
             text_nada = (
-                "Vaya parece ser que no tienes nada de dinero, mejor sal a explorar\n")
+                "Vaya parece ser que no tienes nada de dinero, mejor sal a exp\
+                lorar\n")
             text(text_nada, 0.03)
         else:
             num_tienda = ("Cuál tienda quieres escoger\n")
